@@ -12,11 +12,10 @@ def recursive_binary_search(list, target):
         else: 
             if list[midpoint] < target:
                 # LIST STARTING FROM MIDDLE AND GETTING REST OF THE ELEMENT IN NEW LIST 
-                middle_to_end = list[midpoint+1:]
-                return recursive_binary_search(middle_to_end, target)
+                return recursive_binary_search(list[midpoint+1:], target)
             else:
-                middle_to_start = list[:midpoint]
-                return recursive_binary_search(middle_to_start, target)
+                # THIS FUNCTION HAS LIST OF MIDDLE TO START - SO IT'S SPILLITING THE LIST AND CREATING A NEW LIST 
+                return recursive_binary_search(list[:midpoint], target)
 
 def verify(result):
     print("Target found - ", result)

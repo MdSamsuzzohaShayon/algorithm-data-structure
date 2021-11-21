@@ -63,5 +63,10 @@
  - **Factorial runtime** : n! = n(n-1)(n-2)...(2)(1) . For example foctorial of 3 is 3! = 3 x 2 x 1 = 6, factorial of 4 is !4 = 4 x 3 x 2 x 1. In solving the traveling salesman problem the most efficient algorithm is factorial runtime of a combinatorial runtime.
 
 
+### Data Structures
+ - Data structure is a way of storing data in programming. It's not just collection of value and formant they are stored in but the relationship between the values in the collection as well as the operations applied on the data stored in the structure.
+ - **Array** - can be used to represent a collection of values where each value is referanced using an index or a key.Arrays are also used in building block to create even more custom data types and structures. Arrays is stored in blocks of memory that are right beside each other with no gap
+ - **String** - Text are represented as string type and under the hood strings are just a bunch of charecters stored in a particular order in an array
 
 
+ 2:19:00

@@ -1,5 +1,5 @@
 # Algorithm
- - [Tutorials](https://www.youtube.com/watch?v=8hly31xKli0&t=23s)
+ - [Tutorials](https://www.youtube.com/watch?v=scNEzQPL3X0&list=PLPbgcxheSpE3NlJ30EDpxNYU6P2Jylns8)
  - A set of steps or instructions for completing a task.
  - Need clearly defined problem statement, input and output
  - Search algorithm
@@ -40,7 +40,7 @@
 
 ### Big O
  
- - Definition of the complexity of an algorithm as a function of the size. Complexity is relative
+ - Definition of the complexity of an algorithm as a function of the size. Complexity is relative. Big O notation is used to measure how running time or space requirements for your program grows as input size grows.
  - Big O is a notation used to describe complexity. Notation simplifies everything into a single variable.
  - Order of magnitude of complexity - O(n). A function  of the size. Big O measures complexity as the input size grows. Big O refer to as the upper bound of the algorithm. Here n  means numbers of operations.
  - Big O is a useful notation for understanding both time and space complexity but only when comparing amongst algorithms that solve the same problem.
@@ -64,9 +64,10 @@
 
 
 ### Data Structures
+ - Data structures are building blocks and raw materials for any software programs. 
  - Data structure is a way of storing data in programming. It's not just collection of value and formant they are stored in but the relationship between the values in the collection as well as the operations applied on the data stored in the structure.
  - **Array** - can be used to represent a collection of values where each value is referanced using an index or a key.Arrays are also used in building block to create even more custom data types and structures. Arrays is stored in blocks of memory that are right beside each other with no gap
  - **String** - Text are represented as string type and under the hood strings are just a bunch of charecters stored in a particular order in an array
 
 
- 2:19:00
+

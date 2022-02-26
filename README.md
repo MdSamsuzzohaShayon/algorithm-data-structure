@@ -1,5 +1,5 @@
 # Algorithm
- - [Tutorials](https://www.youtube.com/watch?v=scNEzQPL3X0&list=PLPbgcxheSpE3NlJ30EDpxNYU6P2Jylns8)
+ - [Tutorials](https://www.youtube.com/watch?v=kQDxmjfkIKY&t=87s)
  - A set of steps or instructions for completing a task.
  - Need clearly defined problem statement, input and output
  - Search algorithm

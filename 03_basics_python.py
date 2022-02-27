@@ -1,0 +1,14 @@
+print('\n MATHEMATICAL SET OPERATION⟹⟹⟹⟹⟹⟹⟹⟹⟹🍮🍮🍮⟹⟹⟹⟹⟹⟹⟹⟹⟹⟹⟹🍮🍮🍮⟹⟹⟹⟹⟹⟹⟹⟹⟹⟹🍮🍮🍮⟹⟹⟹⟹⟹⟹⟹⟹⟹⟹ \n')
+# INTERSECTION (AND): SET1 & SET2
+# UNION (OR): SET1 | SET2
+# SYMMETRIC DIFFERENCE(XOR): SET1 ^ SET2 DIFFERENCE (IN SET1 BUT NOT SET2): SET1 - SET2
+# SUBSET (SET2 CONTAINS SET1): SET1 <= SET2
+# SUPERSET (SET1 CONTAINS SET2): SET1 >= SET2
+s1 = {1,2,3}
+s2 = {3,4,5}
+print(s1 & s2) # {3} - INTERSECTION
+print(s1 | s2) # {1, 2, 3, 4, 5} - UNION
+print(s1 ^ s2) # {1, 2, 4, 5} - SEMANTIC DIFFERENCE OR EXCLUSIVE OR
+print(s1 - s2) # {1, 2} - DIFFERENCE
+print(s1 <= s2) # False - SUPERSET SUBSET CHECK
+print(s1 >= s2) # False - SUPERSET SUBSET CHECK

@@ -2,16 +2,13 @@
  - [Tutorials](https://www.youtube.com/watch?v=8hly31xKli0&t=23s)
  - A set of steps or instructions for completing a task.
  - Need clearly defined problem statement, input and output
- - Search algorithm
- - Linear / sequential search order
- - The steps in the algorithm need to be in a very specific order. 
-    1. Start at beginning
-    2. Move sequentially
-    3. Compare current value to target
-    4. React end of list
-    
- - Algorithm should actually complete and not take an infinite amount of time
+ - The steps also tb be distinct (should not able to break it down to further subtask)
  - The algorithm should produce a result
+ - Algorithm should actually complete and not take an infinite amount of time
+ - Search algorithm
+ - The steps in the algorithm need to be in a very specific order. 
+
+    
 
 ### Guideline
 
@@ -22,13 +19,20 @@
  - Two Major Efficiency: Time and space - Good algorithm need to balance between these two measures to be useful.
    - Time complexity: Measure how long it takes the algorithm to run.
    - Space complexity: it deals with the amount of memory taken up on the computer.
+
+### Search algorithm
+ - Run against lsts containing all sorts of data. It is not always just range of values containing numbers. In real use case of binary search  the algorithm would not return the target value because we already know that. Instead what is returns is the position in the list that the target occupies.
    
 ### Linear Search 
  - Input is list of value and output is the target value or position of target value.
+    1. Start at beginning
+    2. Move sequentially
+    3. Compare current value to target
+    4. React end of list
 
 ### Binary Search
 
- - Input is sorted list of values and out put is the position in the list of the target value we are searching. Or some sort of values indicates that the target does not exist in the list.
+ - Input is sorted list of values and output is the position in the list of the target value we are searching. Or some sort of values indicates that the target does not exist in the list.
  - Example: Search 20 in list of 100 like [1, 2,3,4 so on]. Target is 5 here. 
     - Step-1: First check the middle position element 10 check if target element match or not.
     - Step-2: If middle element doesn't match check target is greater or less than middle element.
@@ -65,7 +69,17 @@
 
 ### Data Structures
  - Data structure is a way of storing data in programming. It's not just collection of value and formant they are stored in but the relationship between the values in the collection as well as the operations applied on the data stored in the structure.
- - **Array** - can be used to represent a collection of values where each value is referanced using an index or a key.Arrays are also used in building block to create even more custom data types and structures. Arrays is stored in blocks of memory that are right beside each other with no gap
+ - Data structure is a data storage format. it is collection of values and the format they are stored in, the relationships between the values in the collection as well as the operations applied on the data stored in the structure.
+ - **Array** - can be used to represent a collection of values where each value is referanced using an index or a key.Arrays are also used in building block to create even more custom data types and structures. 
+   - Arrays is stored in blocks of memory that are right beside each other with no gap
+   - Arrays can be either hmogeneous containing same type of value(Python, JavaScript) or heterogeneous where any kind of value can be mixed(C, Swift, Java)
+ - Advantages of contiguous memory: since the values are stored beside each other accessing the values happens in almost constant time so this is a characteristic we want. The way python gets around this is by allocating contiguous memory and storing in it not the value we want to store but a reference or a pointer to the value that is stored somewhere else in memory
+ - **Common operations to execute on an array**: All data structure expected to cary out 4 kinds of operations at minimum
+   1. Access and read values
+   2. Search for an arbitrary values
+   3. Insert values at any point into the structure
+   4. delete values in the structure
+
  - **String** - Text are represented as string type and under the hood strings are just a bunch of charecters stored in a particular order in an array
 
 

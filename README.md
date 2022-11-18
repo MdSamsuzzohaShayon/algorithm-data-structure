@@ -91,6 +91,19 @@
    - Singly linkedlist where each node stores a reference to the next node
    - Doubly linked list where each node stores a reference to both the node before and after
    - Linked is really useful structure to build for learning purposes because they are relatively simple and are a good place to start to introduce the kinds of operations we need to implement for various data structure
-   - 
+ 
+ - **Sort Algorithm** - merge [03:03:00]
+ - Goal is to get an array sorted in ascending order
+ - Merge sort work like binary sort by splitting up the problem into sub problems 
+   1. Split the array into two smaller array or sub array
+   2. on first pass Unlike binary search in merge search one the sub array will not be discarded
+   3. on second pass each of those sub arrays into further smaller evenly sized arrays
+   4. Keep doing this until we are down to single element(one element in an array) arrays
+ - Merge sort algorithm works backwards repeatedly merging the single element array and sorting them at the same time
+ - Since we start at the bottom by merging to single element arrays, we only need to make a single comparison to sort the result 
+ - By starting the smaller array that are sorted as they grow merge sort has to execute fewer sort operations than if it sorted the entire array at once
+ - Solving a problem like this by recursively breaking down the problem into subpart until it is easily solved is an algorithmic strategy known as *divide and conquer*
+ - 
+
 
 

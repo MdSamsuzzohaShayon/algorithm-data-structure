@@ -82,5 +82,15 @@
 
  - **String** - Text are represented as string type and under the hood strings are just a bunch of charecters stored in a particular order in an array
 
+ - **Build Data Structure** - Each data structure solves a particular problem. Arrays are particularly goot at accessing, reading values happen in constant time but Arrays are pretty bar at inserting and deleting both of which run in linear time. Linkedlist on the other hand are somewhat better at this although there are some caveats and if we are trying to solve a problem involves far more inserts and deletes than accessing a linkedlist can be a better tool than array. 
+ - **Linkedlist** - Linkedlist is a linear data structure where each element in the list is contained in a separate object called a node, a node models two pieces of information an individual item of the data we want to and a reference to the next node in the list
+   - First node is called the head of the list
+   - Last node is called tail of the list and tail does not point to anything(Self referential objects)
+   - Every node other than tail points to the next 
+   - The list only maintains a reference to the head although in some impementation is keeps a reference to the tail as well
+   - Singly linkedlist where each node stores a reference to the next node
+   - Doubly linked list where each node stores a reference to both the node before and after
+   - Linked is really useful structure to build for learning purposes because they are relatively simple and are a good place to start to introduce the kinds of operations we need to implement for various data structure
+   - 
 
- 2:19:00
+

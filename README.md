@@ -103,7 +103,8 @@
  - Since we start at the bottom by merging to single element arrays, we only need to make a single comparison to sort the result 
  - By starting the smaller array that are sorted as they grow merge sort has to execute fewer sort operations than if it sorted the entire array at once
  - Solving a problem like this by recursively breaking down the problem into subpart until it is easily solved is an algorithmic strategy known as *divide and conquer*
- - 
+
+03:52:00
 
 
 

@@ -1,9 +1,9 @@
 # Time 1:10:00
 
-# LOOKING FOR THE POSITION IN THE LIST WHERE THE VALUE EXIST 
+# LOOKING FOR THE POSITION/INDEX IN THE LIST WHERE THE VALUE EXIST
 def linear_search(list, target):
     # RETURN INDEX POSITION IF FOUND ELSE RETURN NONE 
-    for i in range(0, len(list)):
+    for i in range(0, len(list)):  # len is a constant time operation
         if list[i] == target:
             return i
     return None
@@ -12,13 +12,13 @@ def linear_search(list, target):
 def verify(index):
     if index is not None:
         print(f'target found at index: {index}')
-    else: 
+    else:
         print("target not found")
+
 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 result = linear_search(numbers, 12)
 verify(result)  # EXPECTED RESULT - target not found
-
 
 result = linear_search(numbers, 6)
 verify(result)  # EXPECTED RESULT - target found at index: 5

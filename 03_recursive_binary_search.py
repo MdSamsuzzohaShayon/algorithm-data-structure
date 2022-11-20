@@ -6,7 +6,6 @@ Recursive function must need a terminating condition
 Iterative solution - the solution implement using loop structure
 Recursive solution - A set of stopping condition and a function that it calls itself
 Python as a maximum recursion depth afterward it will halt, however, python prefer iterative solution
-
 """
 
 # THIS WILL RETURN TRUE INSTEAD OF INDEX NUMBER IF IT EXIST IT WILL RETURN TRUE OR FALSE VALUE

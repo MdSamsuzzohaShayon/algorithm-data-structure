@@ -25,6 +25,8 @@ def is_sorted(values):
 
 
 """
+A imperfect sorting algorithm that randomizes the order of a list and 
+then checks to see if it happens to be sorted
 random attempts for search an item
 Bogo sort does not make any progress toward a solution with each pass
 It could generate a list where just one value is out of order

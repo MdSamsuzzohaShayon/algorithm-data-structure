@@ -48,10 +48,16 @@
 
  - Growth rate: different algorithm grow at different rate abd by evaluating growth rate we get a much better picture of their performance because we know how the algorithm will hold up as n grows larger.
 
-### Big O
+ - To represent complexity (time or space) there is asymptotic notation. A mathematical tool to represent time and space complexity
+   1. Big O Notation
+   2. Omega Notation
+   3. Theta Notation
 
+### Big O
  - Definition of the complexity of an algorithm as a function of the size. Complexity is relative
- - Big O is a notation used to describe complexity. Notation simplifies everything into a single variable.
+ - Big O is a notation used to describe complexity of an algorithm in algebraic terms. Notation simplifies everything into a single variable.
+  1. it is expressed in terms of input
+  2. It focuses on bigger picture without getting caught up in the minor details
  - Order of magnitude of complexity - O(n). A function  of the size. Big O measures complexity as the input size grows. Big O refer to as the upper bound of the algorithm. Here n  means numbers of operations.
  - Big O is a useful notation for understanding both time and space complexity but only when comparing amongst algorithms that solve the same problem.
  - A function of the size: Big O measure the complexity as the input size grows because it's not important to understand how an algorithm performs in a single dataset but in all possible data sets.
@@ -66,11 +72,16 @@
  - **Polynomial Runtime** : An algorithm is considered to have a polynomial runtime if for a given value of n its worst case runtime is in the form of n raised to the k power where k just means some value. ex: k = 2, O(n^k)
  - Algorithm with an upper bound or a runtime with a big O value that is polynomial are considered efficient algorithms.
  - **Exponential runtime** : N increases slidly, number of operation increases exponentially. O(x^n). The range of value we have to go to is 00 to 99 ant this can be generalized as 10^2. Searching though each individual until stumnle to the right one is a strategy call brute force and brute force algorithm have exponential runtime.
-   1. This algorithm is insufficiant
-   2. Number of operation increases segnificantly,
-   3. As n increases number of opertions increases exponentially to a point where it's unsolvable in a realistic amount of time.
+   1. This algorithm is insufficient
+   2. Number of operation increases significantly,
+   3. As n increases number of operations increases exponentially to a point where it's unsolvable in a realistic amount of time.
 
- - **Factorial runtime** : n! = n(n-1)(n-2)...(2)(1) . For example foctorial of 3 is 3! = 3 x 2 x 1 = 6, factorial of 4 is !4 = 4 x 3 x 2 x 1. In solving the traveling salesman problem the most efficient algorithm is factorial runtime of a combinatorial runtime.
+ - **Factorial runtime** : n! = n(n-1)(n-2)...(2)(1) . For example factorial of 3 is 3! = 3 x 2 x 1 = 6, factorial of 4 is !4 = 4 x 3 x 2 x 1. In solving the traveling salesman problem the most efficient algorithm is factorial runtime of a combinatorial runtime.
+
+ - Space complexity: The algorithm does not need extra memory or the memory needed does not depend on the input size the space complexity is.
+  1. O(1) - Constant. Example, sorting algorithm which sort within the array without utilizing additional arrays.
+  2. O(n) - Linear space complexity  where the extra space needed grows as the input size grows.
+  3. O(logn) - Logarithmic where the extra space needed grows but not at the same rate as the input size
 
 
 ### Data Structures

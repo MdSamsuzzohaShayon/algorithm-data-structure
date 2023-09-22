@@ -25,4 +25,4 @@ const personal = {
  * O(n) - Shift, unshift, concat, slice, splice are linear
  * For each map filter, or reduce are also linear
  */
-const odd = [1, 3, 5, 7, 9]
+const odd = [1, 3, 5, 7, 9];

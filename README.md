@@ -27,7 +27,7 @@
    4. Misc. algorithm and problem solving
 
 ### Search algorithm
- - Run against lsts containing all sorts of data. It is not always just range of values containing numbers. In real use case of binary search  the algorithm would not return the target value because we already know that. Instead what is returns is the position in the list that the target occupies.
+ - Run against lists containing all sorts of data. It is not always just range of values containing numbers. In real use case of binary search  the algorithm would not return the target value because we already know that. Instead what is returns is the position in the list that the target occupies.
 
 ### Linear Search
  - Input is list of value and output is the target value or position of target value.

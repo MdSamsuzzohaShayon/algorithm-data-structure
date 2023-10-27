@@ -34,12 +34,13 @@ summation(4);
 
 // Time complexity of this algorithm is O(1) which is called constant time complexity
 function summation2(n){
-  return (n * (n+1)) / 2; // It executes only once no matter value of n is
+  return (n * (n+1)) / 2; // It executes only once no matter whatever the value of n is
 }
 
 
 
 /*
+ * O(n^2)
  * Time complexity is Quadratic here
  */
 const n = 4;
@@ -53,6 +54,7 @@ for (let i = 0; i < n; i++){
 
 
 /*
+ * O(n^3)
  * Time complexity is Cubic here
  * If input size reduces by half every iteration it is logarithmic
  */

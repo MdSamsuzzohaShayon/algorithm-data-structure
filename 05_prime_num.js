@@ -22,3 +22,24 @@ console.log("Result for isPrime(5) - ", isPrime(5)); // Expected return: true
 console.log("Result for isPrime(4) - ", isPrime(4)); // Expected return: false
 
 // Big-O = O(n) Linear
+
+
+// Optimal solution for this
+function isPrime2(n){
+  // Prime number is a natural number greater than 1
+  if( n < 2) return false
+  // This loop will run less times since we are square rooting
+  for (let i = 2; i < Math.sqrt(n); i++) {
+    if (n%i === 0)  return false; // As value o n increases this line execution increases therefore, this is linear time complexity
+  }
+  return true;
+}
+
+console.log("100 Square root result - ",Math.sqrt(100));
+console.log("1000 Square root result - ",Math.sqrt(5000));
+console.log("10000 Square root result - ",Math.sqrt(10000));
+
+console.log(isPrime2(1));
+console.log(isPrime2(5));
+console.log(isPrime2(4));
+// Big-O = O(sqrt(n)) Linear

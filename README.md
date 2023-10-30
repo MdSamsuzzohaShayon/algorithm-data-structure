@@ -26,6 +26,10 @@
    3. Search
    4. Misc. algorithm and problem solving
 
+ - Big-O Complexity Chart
+
+ ![Complexity Chart](complexitychart.png)
+
 ### Search algorithm
  - Run against lists containing all sorts of data. It is not always just range of values containing numbers. In real use case of binary search  the algorithm would not return the target value because we already know that. Instead what is returns is the position in the list that the target occupies.
 

@@ -21,7 +21,9 @@ function climbingStaircase(n) {
 
   for (let i = 2; i <= n; i++) {
     numOfWays[i] = numOfWays[i-1] + numOfWays[i-2];
+    console.log({'numOfWays[i-1]': numOfWays[i-1], 'numOfWays[i-2]': numOfWays[i-2], 'numOfWays[i]': numOfWays[i] });
   }
+  console.log({numOfWays, n, 'numOfWays[n-1]': numOfWays[n - 1]});
 
   return numOfWays[n - 1];
 }

@@ -89,6 +89,29 @@
 
 
 ### Data Structures
+ -  - [Tutorial](https://www.youtube.com/watch?v=poGEVboh9Rw&list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP&index=36)\
+ - Examples:
+   - DOM - Document Object Model is a Tree data structure
+   - Browser back and forward buttons are stack data structure
+   - OS job scheduling - queue data structure
+ - [Built in data structure in python](https://docs.python.org/3/tutorial/datastructures.html), 
+   - Lists: A mutable, ordered sequence of elements.
+   - Tuples: An immutable, ordered sequence of elements.
+   - Sets: An unordered collection of unique elements.
+   - Dictionaries: A collection of key-value pairs.
+   - Strings: Immutable sequences of characters.
+   - Arrays: A module in Python's standard library (array) that provides a basic structure for storing homogeneous elements. 
+   - Deque: A double-ended queue, useful for efficient appending and popping from both ends. (Available in the collections module)
+   - Queues:A module in Python's standard library (queue) that provides the Queue class for implementing a queue data structure. 
+   - Heaps: A module in Python's standard library (heapq) that provides functions for implementing heaps.
+ - Use built in data structure to create custom data structure
+    - Stacks
+    - Queues
+    - Circular Queues
+    - Linked list
+    - Hash table
+    - Trees
+    - Graphs
  - Data structure is a way of storing data in programming. It's not just collection of value and formant they are stored in but the relationship between the values in the collection as well as the operations applied on the data stored in the structure.
  - Data structure is a data storage format. it is collection of values and the format they are stored in, the relationships between the values in the collection as well as the operations applied on the data stored in the structure.
  - **Array** - can be used to represent a collection of values where each value is referanced using an index or a key.Arrays are also used in building block to create even more custom data types and structures.
@@ -124,6 +147,10 @@
  - Since we start at the bottom by merging to single element arrays, we only need to make a single comparison to sort the result
  - By starting the smaller array that are sorted as they grow merge sort has to execute fewer sort operations than if it sorted the entire array at once
  - Solving a problem like this by recursively breaking down the problem into subpart until it is easily solved is an algorithmic strategy known as *divide and conquer*
+
+### Data Structure
+
+ - 
 
 ####
 https://www.youtube.com/watch?v=Fo2Qnw5pMGo&list=PLC3y8-rFHvwiRYB4-HHKHblh3_bQNJTMa&index=3

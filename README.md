@@ -89,7 +89,8 @@
 
 
 ### Data Structures
- -  - [Tutorial](https://www.youtube.com/watch?v=poGEVboh9Rw&list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP&index=36)\
+ - [Tutorial](https://www.youtube.com/watch?v=poGEVboh9Rw&list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP&index=36)\
+ - Data structure is a way of storing data in programming. It's not just collection of value and formant they are stored in but the relationship between the values in the collection as well as the operations applied on the data stored in the structure.
  - Examples:
    - DOM - Document Object Model is a Tree data structure
    - Browser back and forward buttons are stack data structure
@@ -112,8 +113,6 @@
     - Hash table
     - Trees
     - Graphs
- - Data structure is a way of storing data in programming. It's not just collection of value and formant they are stored in but the relationship between the values in the collection as well as the operations applied on the data stored in the structure.
- - Data structure is a data storage format. it is collection of values and the format they are stored in, the relationships between the values in the collection as well as the operations applied on the data stored in the structure.
  - **Array** - can be used to represent a collection of values where each value is referanced using an index or a key.Arrays are also used in building block to create even more custom data types and structures.
    - Arrays is stored in blocks of memory that are right beside each other with no gap
    - Arrays can be either hmogeneous containing same type of value(Python, JavaScript) or heterogeneous where any kind of value can be mixed(C, Swift, Java)

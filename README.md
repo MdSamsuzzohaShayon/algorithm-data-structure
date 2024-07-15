@@ -3,7 +3,7 @@
  - A set of steps or instructions for completing a task.
  - Need clearly defined problem statement, input and output
  - Algorithm should be language independent to use with different languages
- - The steps also tb be distinct (should not able to break it down to further subtask)
+ - The steps also to be distinct (should not able to break it down to further subtask)
  - The algorithm should produce a result
  - Algorithm should actually complete and not take an infinite amount of time
  - Search algorithm

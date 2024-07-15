@@ -20,7 +20,7 @@
  - Two Major Efficiency: Time and space - Good algorithm need to balance between these two measures to be useful.
    - Time complexity: Measure how long it takes the algorithm to run.
    - Space complexity: it deals with the amount of memory taken up on the computer.
- - Types of Algorithm
+ - [**Types of Algorithm**](https://www.youtube.com/watch?v=coqQwbDezUA&list=PLC3y8-rFHvwiRYB4-HHKHblh3_bQNJTMa&index=1)
    1. Math
    2. Sort
    3. Search
@@ -52,10 +52,10 @@
 
  - Growth rate: different algorithm grow at different rate abd by evaluating growth rate we get a much better picture of their performance because we know how the algorithm will hold up as n grows larger.
 
- - To represent complexity (time or space) there is asymptotic notation. A mathematical tool to represent time and space complexity
-   1. Big O Notation
-   2. Omega Notation
-   3. Theta Notation
+ - **To represent complexity** (time or space) there is asymptotic notation. A mathematical tool to represent time and space complexity
+   1. Big O Notation - Worst case complexity
+   2. Omega Notation - Best case complexity
+   3. Theta Notation - Average case complexity
 
 ### Big O
  - Definition of the complexity of an algorithm as a function of the size. Complexity is relative

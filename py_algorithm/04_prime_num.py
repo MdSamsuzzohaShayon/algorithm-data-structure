@@ -1,4 +1,12 @@
 # https://www.youtube.com/watch?v=lYCnThunjqY
+"""
+A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. In other words, a prime number is a number that can only be divided evenly (without leaving a remainder) by 1 and the number itself.
+For example:
+    2 is a prime number because its only divisors are 1 and 2.
+    3 is a prime number because its only divisors are 1 and 3.
+    5 is a prime number because its only divisors are 1 and 5.
+Numbers that have more than two positive divisors are called composite numbers. For instance, 4 is a composite number because it can be divided by 1, 2, and 4.
+"""
 from typing import List
 print("========= PRIME NUMBER PROGRAM =========")
 print("\n Options: ")
@@ -45,4 +53,3 @@ elif option == '2':
     print(f"Prime numbers from {x_val} through {y_val}")
     for prime in list_prime_num:
         print(f"{prime}, ", end="")
-

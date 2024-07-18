@@ -82,7 +82,7 @@ class LinkedList:
             self.add(data)
         # traverse the list to find the current node at that index
         if index > 0:
-            new_node  = Node(data)
+            new_node = Node(data)
             position = index
             current = self.head
 
@@ -122,9 +122,8 @@ class LinkedList:
 
         return current
 
-
     # return the node if it is found otherwise return None
-    def search (self, key):
+    def search(self, key):
         """
         :param key: Search the first node containing data that matches the key
         :return: the node or None if not found
@@ -165,7 +164,7 @@ class LinkedList:
         return '-> '.join(nodes)
 
 
-# Enter interactive mode afterwards. This can be done by passing -i before the script.
+# Enter interactive mode afterward. This can be done by passing -i before the script.
 # python3 -i 05_linkedlist.py
 """
 >>> n1 = Node(10)
@@ -180,6 +179,11 @@ class LinkedList:
 >>> n1.next_node
 <Node data: 20>
 >>> 
+
+n1 = Node(10)
+n2 = Node(20)
+n1.next_node = n2
+print(n1)
 """
 
 # Check size and add function
@@ -221,3 +225,13 @@ class LinkedList:
 >>> 
 """
 
+
+ll = LinkedList()
+ll.add(2)
+ll.add(5)
+ll.add(6)
+ll.add(7)
+print(ll.size())
+n = ll.search(6)
+print(n)
+print(ll)

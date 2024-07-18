@@ -1,8 +1,8 @@
 # Time - 1:18:00
 
 def binary_search(list, target):
-    first = 0 # track the position of the array
-    last = len(list) - 1 # last involves a call to the len function, this is a constant time operation
+    first = 0  # track the position of the array
+    last = len(list) - 1  # last involves a call to the len function, this is a constant time operation
 
     """    
     WHILE LOOP IS WHAT CAUSES THE RUNTIME TO GROW 
@@ -15,12 +15,12 @@ def binary_search(list, target):
         # HERE // MEANS FLOOR DIVISION OPERATOR
         midpoint = (first + last) // 2  # Runtime for simple division is constant
 
-        if list[midpoint] == target: # reading a video from the list and target both of them are constant time operation
+        if list[midpoint] == target:  # reading a video from the list and target both of them are constant time operation
             return midpoint
         elif list[midpoint] < target:
             first = midpoint + 1
         else:
-            last  = midpoint - 1
+            last = midpoint - 1
 
     return None
 
@@ -28,17 +28,16 @@ def binary_search(list, target):
 def verify(index):
     if index is not None:
         print(f'target found at index: {index}')
-    else: 
+    else:
         print("target not found")
+
 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 result = binary_search(numbers, 12)
 verify(result)  # EXPECTED RESULT - target not found
 
-
 result = binary_search(numbers, 6)
 verify(result)  # EXPECTED RESULT - target found at index: 5
-
 
 """
 THE NUMBERS LIST THAT WE'VE DEFINED HAS TO BE SORTED

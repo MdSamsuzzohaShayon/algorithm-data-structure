@@ -37,6 +37,8 @@ function summation2(n){
   return (n * (n+1)) / 2; // It executes only once no matter whatever the value of n is
 }
 
+console.log("Simulations 2 -> ", summation2(5));
+
 
 
 /*

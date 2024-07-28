@@ -50,15 +50,57 @@
 
 
 
+// Initializing an array with mixed data types
 const arr = [1, 2, 3, "Shayon", 4, 5];
 
+// Adding an element to the end of the array
+// Time Complexity: O(1), Space Complexity: O(1)
+arr.push(4);
 
-arr.push(4); // add element
-arr.unshift(0); // add element at the beginning
-arr.pop(); // remove element from the end of the array
-arr.shift(); // Remove from the beginning
+// Adding an element to the beginning of the array
+// Time Complexity: O(n), Space Complexity: O(1)
+arr.unshift(0);
 
+// Removing an element from the end of the array
+// Time Complexity: O(1), Space Complexity: O(1)
+arr.pop();
+
+// Removing an element from the beginning of the array
+// Time Complexity: O(n), Space Complexity: O(1)
+arr.shift();
+
+// Iterating over the array and printing each element
+// Time Complexity: O(n), Space Complexity: O(1)
 for (const a of arr) {
     console.log(a);
 }
+
+/**
+ * Explanation of Time and Space Complexity:
+ * 
+ * - arr.push(4):
+ *   Adds an element to the end of the array.
+ *   - Time Complexity: O(1) because it involves adding a single element to the end without needing to shift other elements.
+ *   - Space Complexity: O(1) because it requires a constant amount of additional space regardless of the size of the array.
+ * 
+ * - arr.unshift(0):
+ *   Adds an element to the beginning of the array.
+ *   - Time Complexity: O(n) because it needs to shift all existing elements one position to the right.
+ *   - Space Complexity: O(1) because it requires a constant amount of additional space regardless of the size of the array.
+ * 
+ * - arr.pop():
+ *   Removes an element from the end of the array.
+ *   - Time Complexity: O(1) because it involves removing a single element from the end without needing to shift other elements.
+ *   - Space Complexity: O(1) because it requires a constant amount of additional space regardless of the size of the array.
+ * 
+ * - arr.shift():
+ *   Removes an element from the beginning of the array.
+ *   - Time Complexity: O(n) because it needs to shift all existing elements one position to the left.
+ *   - Space Complexity: O(1) because it requires a constant amount of additional space regardless of the size of the array.
+ * 
+ * - for (const a of arr):
+ *   Iterates over the array and prints each element.
+ *   - Time Complexity: O(n) because it involves visiting each element of the array once.
+ *   - Space Complexity: O(1) because it requires a constant amount of additional space regardless of the size of the array.
+ */
 

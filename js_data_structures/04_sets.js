@@ -105,13 +105,29 @@
 
 
 
+// Initializing a Set with initial elements
 const nums = new Set([1, 2, 3]);
+
+// Adding elements to the Set
+// Time Complexity: O(1), Space Complexity: O(1) per addition
 nums.add(4);
 nums.add(5);
+
+// Deleting an element from the Set
+// Time Complexity: O(1), Space Complexity: O(1)
 nums.delete(3);
-console.log(nums.has(4));
+
+// Checking if an element exists in the Set
+// Time Complexity: O(1), Space Complexity: O(1)
+console.log(nums.has(4)); // true
+
+// Iterating over the Set and printing each element
+// Time Complexity: O(n), Space Complexity: O(1)
 for (const item of nums) {
-    console.log(item);    
+    console.log(item);
 }
+
+// Clearing all elements from the Set
+// Time Complexity: O(n), Space Complexity: O(1)
 nums.clear();
-console.log({nums});
+console.log({ nums }); // Set(0) {}

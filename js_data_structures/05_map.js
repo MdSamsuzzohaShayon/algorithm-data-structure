@@ -99,16 +99,31 @@
 
 
 
+// Initializing a Map with initial key-value pairs
 const m = new Map([['a', 1], ['b', 2]]);
-m.set('c', 3);
-console.log(m.has("c"));
 
+// Adding a new key-value pair to the Map
+// Time Complexity: O(1), Space Complexity: O(1)
+m.set('c', 3);
+
+// Checking if a key exists in the Map
+// Time Complexity: O(1), Space Complexity: O(1)
+console.log(m.has("c")); // true
+
+// Iterating over the Map and printing each key-value pair
+// Time Complexity: O(n), Space Complexity: O(1)
 for (const [k, v] of m) {
     console.log(`Key: ${k}, Value: ${v}`);
 }
 
-console.log(m.size);
+// Getting the size of the Map
+// Time Complexity: O(1), Space Complexity: O(1)
+console.log(m.size); // 3
+
+// Clearing all elements from the Map
+// Time Complexity: O(n), Space Complexity: O(1)
 m.clear();
-console.log({ m });
+console.log({ m }); // Map(0) {}
+
 
 

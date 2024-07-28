@@ -4,6 +4,7 @@
  * Tutorial-3: https://youtu.be/A-9tzPuE1eA?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP
  * Insert: https://www.youtube.com/watch?v=Sd9Nps5nAdU&list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP&index=52
  * Remove: https://www.youtube.com/watch?v=D_kWagEfcx8&list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP&index=53
+ * Search: https://youtu.be/ZRIJuAIGJ4M?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP
  * 
  * A Linked list is a linear data structure that includes a series of connected nodes
  * Each node consists of a data value and a pointer that points to the next node
@@ -132,6 +133,18 @@ class LinkedList {
         }
     }
 
+    search(value){
+        if(this.isEmpty()) return -1; 
+        let i = 0;
+        let curr = this.head;
+        while (curr) {
+            if(curr.value === value) return i;
+            curr = curr.next;
+            i++
+        }
+        return -1;
+    }
+
     print() {
         if (this.isEmpty()) {
             console.log("List is empty!");
@@ -161,6 +174,8 @@ list.print();
 list.append(40);
 list.print();
 list.insert(35,3 );
+console.log("Search indexO(n): ", list.search(35));
+console.log("Search indexO(n): ", list.search(36));
 list.print();
 list.removeFrom(0 );
 list.removeFrom(1 );

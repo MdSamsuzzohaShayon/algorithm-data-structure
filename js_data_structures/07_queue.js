@@ -26,59 +26,64 @@
  */
 
 
-
+// Standard Queue Implementation
 class Queue {
     constructor() {
         this.items = [];
     }
 
-
+    // Add an element to the end of the queue
+    // Time Complexity: O(1), Space Complexity: O(1)
     enqueue(element) {
         this.items.push(element);
     }
 
+    // Remove and return the front element of the queue
+    // Time Complexity: O(n), Space Complexity: O(1)
     dequeue() {
-        // It has linear time complpexity Big-O = O(n)
-        return this.items.shift(); // remove item from the beginning of the array
+        return this.items.shift(); // Linear time complexity due to array shift
     }
 
+    // Check if the queue is empty
+    // Time Complexity: O(1), Space Complexity: O(1)
     isEmpty() {
         return this.items.length === 0;
     }
 
+    // Return the front element of the queue without removing it
+    // Time Complexity: O(1), Space Complexity: O(1)
     peek() {
-        if (!this.isEmpty()) return this.items[0];
-        return null;
+        return !this.isEmpty() ? this.items[0] : null;
     }
 
+    // Return the number of elements in the queue
+    // Time Complexity: O(1), Space Complexity: O(1)
     size() {
         return this.items.length;
     }
 
+    // Print all elements in the queue
+    // Time Complexity: O(n), Space Complexity: O(1)
     print() {
         console.log(this.items.toString());
     }
 }
 
-
-
+// Example usage of Queue
 const queue = new Queue();
 
-
-console.log(queue.isEmpty() ? "Queue is empty!" : "Queue is not empty!");
+console.log(queue.isEmpty() ? "Queue is empty!" : "Queue is not empty!"); // Queue is empty!
 queue.enqueue(10);
 queue.enqueue(20);
 queue.enqueue(30);
 queue.enqueue(40);
-console.log(`Queue size: ${queue.size()}`);
-queue.print();
-queue.dequeue();
-queue.print();
-console.log("Peek of the queue: ", queue.peek());
+console.log(`Queue size: ${queue.size()}`); // Queue size: 4
+queue.print(); // 10,20,30,40
+queue.dequeue(); // Removes 10
+queue.print(); // 20,30,40
+console.log("Peek of the queue: ", queue.peek()); // Peek of the queue:  20
 
-
-
-// Optimized - https://youtu.be/ba15sgOiAOg?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP
+// Optimized Queue Implementation
 class OptimizedQueue {
     constructor() {
         this.items = {};
@@ -86,52 +91,63 @@ class OptimizedQueue {
         this.front = 0;
     }
 
-    enqueue(element){
+    // Add an element to the end of the queue
+    // Time Complexity: O(1), Space Complexity: O(1)
+    enqueue(element) {
         this.items[this.rear] = element;
         this.rear++;
     }
 
-    dequeue(){
+    // Remove and return the front element of the queue
+    // Time Complexity: O(1), Space Complexity: O(1)
+    dequeue() {
+        if (this.isEmpty()) return undefined;
         const item = this.items[this.front];
         delete this.items[this.front];
         this.front++;
         return item;
     }
 
-    isEmpty(){
+    // Check if the queue is empty
+    // Time Complexity: O(1), Space Complexity: O(1)
+    isEmpty() {
         return this.rear - this.front === 0;
     }
 
-    peek(){
-        return this.items[this.front];
+    // Return the front element of the queue without removing it
+    // Time Complexity: O(1), Space Complexity: O(1)
+    peek() {
+        return this.isEmpty() ? undefined : this.items[this.front];
     }
 
-    size(){
-       return this.rear - this.front; 
+    // Return the number of elements in the queue
+    // Time Complexity: O(1), Space Complexity: O(1)
+    size() {
+        return this.rear - this.front;
     }
 
-    print(){
+    // Print all elements in the queue
+    // Time Complexity: O(n), Space Complexity: O(n)
+    print() {
         console.log(this.items);
     }
-
-
 }
 
-
-
+// Example usage of OptimizedQueue
 console.log("===================OPTIMIZED QUEUE===================");
 const optimizedQueue = new OptimizedQueue();
-console.log(optimizedQueue.isEmpty() ? "Queue is empty!" : "Queue is not empty!");
+
+console.log(optimizedQueue.isEmpty() ? "Queue is empty!" : "Queue is not empty!"); // Queue is empty!
 optimizedQueue.enqueue(10);
 optimizedQueue.enqueue(20);
 optimizedQueue.enqueue(30);
 optimizedQueue.enqueue(40);
-console.log(`Queue size: ${optimizedQueue.size()}`);
-optimizedQueue.print();
-console.log("Dequeue from the list: ",optimizedQueue.dequeue());
-optimizedQueue.print();
-console.log("Peek of the queue: ", optimizedQueue.peek());
+console.log(`Queue size: ${optimizedQueue.size()}`); // Queue size: 4
+optimizedQueue.print(); // { '0': 10, '1': 20, '2': 30, '3': 40 }
+console.log("Dequeue from the list: ", optimizedQueue.dequeue()); // Dequeue from the list: 10
+optimizedQueue.print(); // { '1': 20, '2': 30, '3': 40 }
+console.log("Peek of the queue: ", optimizedQueue.peek()); // Peek of the queue: 20
 
 /**
- * Enqueue and dequeue has constant time complexity Big-O = O(1)
+ * Enqueue and dequeue in OptimizedQueue have constant time complexity Big-O = O(1)
  */

@@ -79,9 +79,9 @@ class LinkedList {
 
     insert(value, index) {
         if (index < 0 || index > this.size) return;
-        if(index === 0){
+        if (index === 0) {
             this.prepend(value);
-        }else{
+        } else {
             const node = new Node(value);
             let prev = this.head;
             for (let i = 0; i < index - 1; i++) {
@@ -94,15 +94,15 @@ class LinkedList {
 
     }
 
-    removeFrom(index){
-        if(index < 0 || index >= this.size) return null;
+    removeFrom(index) {
+        if (index < 0 || index >= this.size) return null;
         let removeNode;
-        if(index === 0){
+        if (index === 0) {
             removeNode = this.head;
             this.head = this.head.next;
-        }else{
+        } else {
             let prev = this.head;
-            for (let i = 0; i < index-1; i++) {
+            for (let i = 0; i < index - 1; i++) {
                 prev = prev.next;
             }
             removeNode = prev.next;
@@ -112,18 +112,18 @@ class LinkedList {
         return removeNode.value;
     }
 
-    removeValue(value){
-        if(this.isEmpty()) return null;
-        if(this.head.value === value){
+    removeValue(value) {
+        if (this.isEmpty()) return null;
+        if (this.head.value === value) {
             this.head = this.head.next;
             this.size--;
             return value;
-        }else{
+        } else {
             let prev = this.head;
-            while(prev.next && prev.next.value !== value){
+            while (prev.next && prev.next.value !== value) {
                 prev = prev.next;
             }
-            if(prev.next){
+            if (prev.next) {
                 const removedNode = prev.next;
                 prev.next = removedNode.next;
                 this.size--;
@@ -133,16 +133,29 @@ class LinkedList {
         }
     }
 
-    search(value){
-        if(this.isEmpty()) return -1; 
+    search(value) {
+        if (this.isEmpty()) return -1;
         let i = 0;
         let curr = this.head;
         while (curr) {
-            if(curr.value === value) return i;
+            if (curr.value === value) return i;
             curr = curr.next;
             i++
         }
         return -1;
+    }
+
+    reverse() {
+        let curr = this.head,
+            prev = null;
+
+        while (curr) {
+            let next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        this.head = prev;
     }
 
     print() {
@@ -173,15 +186,25 @@ list.prepend(10);
 list.print();
 list.append(40);
 list.print();
-list.insert(35,3 );
+list.insert(35, 3);
 console.log("Search indexO(n): ", list.search(35));
 console.log("Search indexO(n): ", list.search(36));
 list.print();
-list.removeFrom(0 );
-list.removeFrom(1 );
+list.removeFrom(0);
+list.removeFrom(1);
 list.print();
 
 console.log("Removed value (head node remove has time complexity of O(1)): ", list.removeValue(20));
 list.print();
 console.log("Removed value O(n): ", list.removeValue(40));
+console.log("Removed value O(n): ", list.removeValue(35));
+list.print();
+
+list.append(5);
+list.append(15);
+list.append(25);
+list.append(35);
+list.append(45);
+list.print();
+list.reverse();
 list.print();

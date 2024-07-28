@@ -33,81 +33,94 @@
  */
 
 
-class Stack{
-    constructor(){
+class Stack {
+    constructor() {
         this.items = [];
         this.count = 0;
     }
 
     // Add element to the top of the stack
-    push(element){
+    // Time Complexity: O(1), Space Complexity: O(1)
+    push(element) {
         this.items[this.count] = element;
         this.count += 1;
-        console.log(`${element} added to ${this.count}`);
+        console.log(`${element} added to position ${this.count}`);
         return this.count - 1;
     }
 
     // Return and remove the top element in the stack
     // Return undefined if stack is empty
-    pop(){
+    // Time Complexity: O(1), Space Complexity: O(1)
+    pop() {
         if (this.count === 0) return undefined;
-        let deletedItem = this.items[this.count - 1];
         this.count -= 1;
+        let deletedItem = this.items.pop();
         console.log(`${deletedItem} removed`);
         return deletedItem;
     }
 
     // Check top element in the stack
-    peek(){
+    // Time Complexity: O(1), Space Complexity: O(1)
+    peek() {
         console.log(`Top element is ${this.items[this.count - 1]}`);
         return this.items[this.count - 1];
     }
 
-    isEmpty(){
+    // Check if the stack is empty
+    // Time Complexity: O(1), Space Complexity: O(1)
+    isEmpty() {
         console.log(this.count === 0 ? `Stack is empty` : "Stack is not empty");
         return this.count === 0;
     }
-    size(){
+
+    // Get the number of elements in the stack
+    // Time Complexity: O(1), Space Complexity: O(1)
+    size() {
         console.log(`${this.count} elements in the stack`);
         return this.count;
     }
 
-    print(){
+    // Print all elements in the stack
+    // Time Complexity: O(n), Space Complexity: O(1)
+    print() {
         let str = '';
         for (let i = 0; i < this.count; i++) {
-            str += this.items[i] + " "
+            str += this.items[i] + " ";
         }
-        return str;
+        console.log(str.trim());
+        return str.trim();
     }
 
-    clear(){
+    // Clear all elements from the stack
+    // Time Complexity: O(1), Space Complexity: O(1)
+    clear() {
         this.items = [];
         this.count = 0;
-        console.log('Stack cleared...');;
+        console.log('Stack cleared...');
         return this.items;
     }
-
 }
 
-const stack  = new Stack();
+// Example usage
+const stack = new Stack();
 
-stack.isEmpty();
+stack.isEmpty(); // Stack is empty
 
-stack.push(100);
-stack.push(200);
-stack.push(300);
+stack.push(100); // 100 added to position 1
+stack.push(200); // 200 added to position 2
+stack.push(300); // 300 added to position 3
 
-console.log(stack.print());
-stack.isEmpty();
-stack.peek();
+stack.print(); // 100 200 300
+stack.isEmpty(); // Stack is not empty
+stack.peek(); // Top element is 300
 
-stack.size();
+stack.size(); // 3 elements in the stack
 
-stack.pop();
-stack.pop();
+stack.pop(); // 300 removed
+stack.pop(); // 200 removed
 
-stack.size();
-stack.isEmpty();
+stack.size(); // 1 element in the stack
+stack.isEmpty(); // Stack is not empty
 
-stack.clear();
-stack.isEmpty();
+stack.clear(); // Stack cleared...
+stack.isEmpty(); // Stack is empty

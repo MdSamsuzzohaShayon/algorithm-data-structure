@@ -5,6 +5,7 @@
  * Insert: https://www.youtube.com/watch?v=Sd9Nps5nAdU&list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP&index=52
  * Remove: https://www.youtube.com/watch?v=D_kWagEfcx8&list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP&index=53
  * Search: https://youtu.be/ZRIJuAIGJ4M?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP
+ * Tail O(1): https://youtu.be/sw7fCZeFTdc?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP
  * 
  * A Linked list is a linear data structure that includes a series of connected nodes
  * Each node consists of a data value and a pointer that points to the next node
@@ -21,6 +22,8 @@
  * image viewer
  * 
  */
+
+
 
 
 class Node {
@@ -208,3 +211,116 @@ list.append(45);
 list.print();
 list.reverse();
 list.print();
+
+
+
+console.log("======================  Linked List With Tail  =========================");
+/**
+ * Tutorial-1: https://youtu.be/sw7fCZeFTdc?si=eVTAs1ws5lnlJRYh
+ * Tutorial-2: https://youtu.be/ADZfDxftXQ0?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP
+ */
+
+class TailLinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
+
+    }
+
+    isEmpty() {
+        return this.size === 0;
+    }
+
+    getSize() {
+        return this.size;
+    }
+
+
+
+
+
+    print() {
+        if (this.isEmpty()) {
+            console.log("List is empty!");
+        } else {
+            // Traverse the list
+            let curr = this.head;
+            let listValues = "";
+            while (curr) {
+                listValues += `${curr.value} `;
+                curr = curr.next;
+            }
+
+            console.log(listValues);
+        }
+    }
+
+
+
+    prepend(value) {
+        const node = new Node(value);
+        if(this.isEmpty()){
+            this.head = node;
+            this.tail = node;
+        }else{
+            node.next = this.head;
+            this.head = node;
+        }
+        this.size++;
+    }
+
+    append(value) {
+        const node = new Node(value);
+        if(this.isEmpty()){
+            this.head = node;
+            this.tail = node;
+        }else{
+            this.tail.next = node;
+            this.tail = node; 
+        }
+        this.size++;
+    }
+
+    removeFromFront(){
+        if(this.isEmpty())return null;
+        const value = this.head.value;
+        this.head = this.head.next;
+        this.size--;
+        return value;
+    }
+
+    removeFromEnd(){
+        if(this.isEmpty())return null;
+        const value = this.tail.value;
+        if(this.size === 1){
+            this.head = null;
+            this.tail = null;
+        }else{
+            let prev = this.head;
+            while (prev.next !== this.tail) {
+                prev = prev.next;
+            }
+            prev.next = null;
+            this.tail = prev;
+        }
+        this.size--;
+        return value
+    }
+
+    
+
+}
+
+
+const tls  = new TailLinkedList();
+tls.append(1);
+tls.append(2);
+tls.append(3);
+tls.prepend(4);
+
+tls.print();
+tls.removeFromFront();
+tls.print();
+tls.removeFromEnd();
+tls.print();

@@ -1,6 +1,6 @@
 /**
- * Tutorial-1: https://www.youtube.com/watch?v=-0ZIresFUZI&list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP&index=59
- * Stack follows LIFO principle
+ * Tutorial: https://www.youtube.com/watch?v=15q-fLZqo_0&list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP&index=60
+ * Stack follows FIFO principle
  */
 
 class Node {
@@ -100,16 +100,16 @@ class LinkedList {
 }
 
 
-// LIFO = Last In First Out
-class LinkedListStack{
+// FIFO = Last In First Out
+class LinkedListQueue{
     constructor(){
         this.list = new LinkedList();
     }
 
-    push(value){
-        this.list.prepend(value);
+    enqueue(value){
+        this.list.append(value);
     }
-    pop(){
+    dequeue(){
         this.list.removeFromFront();
     }
     peek(){
@@ -127,11 +127,11 @@ class LinkedListStack{
 }
 
 
-const stack = new LinkedListStack();
-stack.push(10);
-stack.push(20);
-stack.push(30); // inserted at the list, should be deleted first
-stack.print();
-stack.pop();
-stack.print();
-console.log(stack.peek());;
+const queue = new LinkedListQueue();
+queue.enqueue(10); // First in
+queue.enqueue(20);
+queue.enqueue(30);
+queue.print();
+queue.dequeue(); // First out 10
+queue.print();
+console.log(queue.peek());;

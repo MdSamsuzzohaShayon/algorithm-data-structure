@@ -147,9 +147,17 @@
  - By starting the smaller array that are sorted as they grow merge sort has to execute fewer sort operations than if it sorted the entire array at once
  - Solving a problem like this by recursively breaking down the problem into subpart until it is easily solved is an algorithmic strategy known as *divide and conquer*
 
-### Data Structure
-
- - 
+### Leetcode patterns
+ - [Tutorial](https://www.youtube.com/watch?v=xo7XrRVxH8Y)
+ - Focus on pattern that repeat over an over again
+   1. Sliding window pattern 
+   2. Subset pattern
+   3. Modified binary search pattern
+   4. Top k elements pattern
+   5. Binary tree DFS 
+   6. Topological sort
+   7. Binary tree BFS
+   8. Two pointer
 
 ####
 https://www.youtube.com/watch?v=Fo2Qnw5pMGo&list=PLC3y8-rFHvwiRYB4-HHKHblh3_bQNJTMa&index=3

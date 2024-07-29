@@ -26,31 +26,38 @@
 
 
 
+// Node class represents each element in the LinkedList
 class Node {
     constructor(value) {
-        this.value = value;
-        this.next = null;
+        this.value = value; // Data of the node
+        this.next = null;   // Pointer to the next node
     }
 }
 
-
+// LinkedList class to handle operations on the list
 class LinkedList {
     constructor() {
-        this.head = null;
-        this.size = 0;
-
+        this.head = null;  // First node of the list
+        this.size = 0;     // Size of the list
     }
 
+    // Check if the list is empty
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
     isEmpty() {
         return this.size === 0;
     }
 
+    // Get the size of the list
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
     getSize() {
         return this.size;
     }
 
-    // Adding an element at the beginning of the list
-    // Big-O  = O(1) Constant time complexity
+    // Add an element at the beginning of the list
+    // Time Complexity: O(1)
+    // Space Complexity: O(1)
     prepend(value) {
         const node = new Node(value);
         if (this.isEmpty()) {
@@ -62,16 +69,15 @@ class LinkedList {
         this.size++;
     }
 
-    // Add element at the end of the list
-    // Big-O  = O(n) Linear time complexity
+    // Add an element at the end of the list
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
     append(value) {
         const node = new Node(value);
         if (this.isEmpty()) {
             this.head = node;
         } else {
             let prev = this.head;
-
-            // The while loop will stop when we reach last node since last node has null value for next pointer
             while (prev.next) {
                 prev = prev.next;
             }
@@ -80,6 +86,9 @@ class LinkedList {
         this.size++;
     }
 
+    // Insert an element at a specific index
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
     insert(value, index) {
         if (index < 0 || index > this.size) return;
         if (index === 0) {
@@ -94,9 +103,11 @@ class LinkedList {
             prev.next = node;
             this.size++;
         }
-
     }
 
+    // Remove an element from a specific index
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
     removeFrom(index) {
         if (index < 0 || index >= this.size) return null;
         let removeNode;
@@ -115,6 +126,9 @@ class LinkedList {
         return removeNode.value;
     }
 
+    // Remove an element by value
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
     removeValue(value) {
         if (this.isEmpty()) return null;
         if (this.head.value === value) {
@@ -136,6 +150,9 @@ class LinkedList {
         }
     }
 
+    // Search for an element by value
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
     search(value) {
         if (this.isEmpty()) return -1;
         let i = 0;
@@ -143,41 +160,68 @@ class LinkedList {
         while (curr) {
             if (curr.value === value) return i;
             curr = curr.next;
-            i++
+            i++;
         }
         return -1;
     }
 
+    // Reverse the linked list
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
     reverse() {
-        let curr = this.head,
-            prev = null;
+        let curr = this.head;  // Initialize current node to head
+        let prev = null;       // Initialize previous node to null
 
+        // Traverse through the list
         while (curr) {
-            let next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+            let next = curr.next;  // Store the next node
+            curr.next = prev;      // Reverse the current node's pointer
+            prev = curr;           // Move the previous node to the current node
+            curr = next;           // Move the current node to the next node
         }
-        this.head = prev;
+
+        this.head = prev;  // After the loop, prev will be the new head of the reversed list
+
+        /**
+         * Step-by-Step Explanation:
+         * 
+         * Initialize Current and Previous Pointers:
+         *       curr is initialized to this.head to start from the beginning of the list.
+         *       prev is initialized to null because the new end of the list (the old head) will point to null.
+         * 
+         * Traverse the List:
+         * The loop runs as long as curr is not null.
+         * Inside the loop:
+         *       next stores the next node (curr.next), preserving the link to the rest of the list.
+         *       curr.next is set to prev, reversing the direction of the current node’s pointer.
+         *       prev is updated to the current node (curr), moving the previous pointer forward.
+         *       curr is updated to the next node (next), moving the current pointer forward.
+         * 
+         * Update Head:
+         *       After the loop completes, prev will point to the new head of the reversed list.
+         *       this.head is updated to prev, finalizing the reversal of the list.
+         */
     }
 
+    // Print the elements of the list
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
     print() {
         if (this.isEmpty()) {
             console.log("List is empty!");
         } else {
-            // Traverse the list
             let curr = this.head;
             let listValues = "";
             while (curr) {
                 listValues += `${curr.value} `;
                 curr = curr.next;
             }
-
             console.log(listValues);
         }
     }
 }
 
+// Example usage of LinkedList
 const list = new LinkedList();
 list.print();
 console.log("List is empty? ", list.isEmpty());
@@ -190,19 +234,17 @@ list.print();
 list.append(40);
 list.print();
 list.insert(35, 3);
-console.log("Search indexO(n): ", list.search(35));
-console.log("Search indexO(n): ", list.search(36));
+console.log("Search index: ", list.search(35));
+console.log("Search index: ", list.search(36));
 list.print();
 list.removeFrom(0);
 list.removeFrom(1);
 list.print();
-
-console.log("Removed value (head node remove has time complexity of O(1)): ", list.removeValue(20));
+console.log("Removed value: ", list.removeValue(20));
 list.print();
-console.log("Removed value O(n): ", list.removeValue(40));
-console.log("Removed value O(n): ", list.removeValue(35));
+console.log("Removed value: ", list.removeValue(40));
+console.log("Removed value: ", list.removeValue(35));
 list.print();
-
 list.append(5);
 list.append(15);
 list.append(25);
@@ -260,10 +302,10 @@ class TailLinkedList {
 
     prepend(value) {
         const node = new Node(value);
-        if(this.isEmpty()){
+        if (this.isEmpty()) {
             this.head = node;
             this.tail = node;
-        }else{
+        } else {
             node.next = this.head;
             this.head = node;
         }
@@ -272,31 +314,31 @@ class TailLinkedList {
 
     append(value) {
         const node = new Node(value);
-        if(this.isEmpty()){
+        if (this.isEmpty()) {
             this.head = node;
             this.tail = node;
-        }else{
+        } else {
             this.tail.next = node;
-            this.tail = node; 
+            this.tail = node;
         }
         this.size++;
     }
 
-    removeFromFront(){
-        if(this.isEmpty())return null;
+    removeFromFront() {
+        if (this.isEmpty()) return null;
         const value = this.head.value;
         this.head = this.head.next;
         this.size--;
         return value;
     }
 
-    removeFromEnd(){
-        if(this.isEmpty())return null;
+    removeFromEnd() {
+        if (this.isEmpty()) return null;
         const value = this.tail.value;
-        if(this.size === 1){
+        if (this.size === 1) {
             this.head = null;
             this.tail = null;
-        }else{
+        } else {
             let prev = this.head;
             while (prev.next !== this.tail) {
                 prev = prev.next;
@@ -308,12 +350,12 @@ class TailLinkedList {
         return value
     }
 
-    
+
 
 }
 
 
-const tls  = new TailLinkedList();
+const tls = new TailLinkedList();
 tls.append(1);
 tls.append(2);
 tls.append(3);

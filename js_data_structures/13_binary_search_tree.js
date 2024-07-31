@@ -7,6 +7,7 @@
  * - [Tutorial-3](https://youtu.be/kIVkBsfB-SM?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP)
  * - [Tutorial-4](https://youtu.be/lml2E9SIJHo?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP)
  * - [Tutorial-5](https://youtu.be/n6_Ruq1qvjU?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP)
+ * - [Tutorial-6](https://www.youtube.com/watch?v=H0i3gk1h0lI&list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP&index=71)
  * 
  * Overview:
  * A tree is a hierarchical, non-linear data structure consisting of nodes connected by edges. Unlike linear data structures 
@@ -99,6 +100,18 @@
  * - **Pre-order Traversal**: Visit the root (Read the data), the left subtree, then the right subtree. So the order will be 10, 5, 3, 7, 15 in pre-order
  * - **Post-order Traversal**: Visit the left subtree, the right subtree, then the root (Read the data).
  * 
+ * Breath First Search (BFS) Traversal
+ * Explore all nodes at the present depth prior to moving on to the nodes at the next depth level. Usually the order is 10, 5, 15, 3, 7
+ * 
+ * Process:
+ *      1. Create a queue
+ *      2. Enqueue the root node
+ *      3. As long as a node exist in the queue:
+ *              a. Dequeue the node from the front
+ *              b. Read the value of the node
+ *              c. Enqueue the left child of the node if it is exists
+ *              d. Enqueue the right child of the node if it is exists
+ * 
  */
 
 
@@ -182,6 +195,22 @@ class BinarySearchTree {
             console.log(root.value);
         }
     }
+
+    // BFS Approach
+    levelOrder(){
+        const queue = [];
+        queue.push(this.root);
+        while(queue.length){
+            let curr = queue.shift();
+            console.log(curr.value);
+            if(curr.left) {
+                queue.push(curr.left);
+            }
+            if(curr.right){
+                queue.push(curr.right);
+            }
+        }
+    }
 }
 
 
@@ -207,3 +236,7 @@ bst.inOrder(bst.root);
 
 console.log("===== Post Order =====");
 bst.postOrder(bst.root);
+
+
+console.log("===== Level Order =====");
+bst.levelOrder();

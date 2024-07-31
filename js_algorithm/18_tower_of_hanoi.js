@@ -18,15 +18,7 @@ towerOfHanoi(3, 'A', 'C', 'B');
 
 
 
-/**
- * Must Learn
- * 
- * 1. Brute force
- * 2. Greedy
- * 3. Divide and conquer
- * 4. Dynamic Programming
- * 5. Back tracking
- */
+
 
 /**
  * Next Steps

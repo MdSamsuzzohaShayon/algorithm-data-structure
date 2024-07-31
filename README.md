@@ -159,6 +159,22 @@
    7. Binary tree BFS
    8. Two pointer
 
+
+### Further Learning
+ - **Algorithms**
+    - Brute force
+    - Greedy
+    - Divide and conquer
+    - Dynamic Programming
+    - Back tracking
+ - **Data Structure**
+    - Priority queue
+    - Curcular Linked Lists
+    - AVL trees, red black trees and tries
+    - Prim's, Kruskal's and Floyd's algorithms
+    - Solve problems that utilize these data structures
+
+
 ####
 https://www.youtube.com/watch?v=Fo2Qnw5pMGo&list=PLC3y8-rFHvwiRYB4-HHKHblh3_bQNJTMa&index=3
 

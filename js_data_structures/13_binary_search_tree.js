@@ -5,6 +5,8 @@
  * - [Tutorial-1](https://www.youtube.com/watch?v=c-LEpmYikFY&list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP&index=65)
  * - [Tutorial-2](https://youtu.be/-ZMm8xX-Vrs?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP)
  * - [Tutorial-3](https://youtu.be/kIVkBsfB-SM?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP)
+ * - [Tutorial-4](https://youtu.be/lml2E9SIJHo?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP)
+ * - [Tutorial-5](https://youtu.be/n6_Ruq1qvjU?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP)
  * 
  * Overview:
  * A tree is a hierarchical, non-linear data structure consisting of nodes connected by edges. Unlike linear data structures 
@@ -68,15 +70,34 @@
  * - **Breadth-First Search (BFS)**: Traverse the tree level by level, visiting all nodes at the present depth level before moving on to nodes at the next depth level.
  * - **Deletion**: Remove a node given its value. This can be complex, involving three main cases: the node is a leaf, the node has one child, or the node has two children.
  * 
- * DFS Variants:
- * - **In-order Traversal**: Visit the left subtree, the root, then the right subtree.
- * - **Pre-order Traversal**: Visit the root, the left subtree, then the right subtree.
- * - **Post-order Traversal**: Visit the left subtree, the right subtree, then the root.
  * 
  * Binary Search Tree (BST) Usage:
  * - **Searching**: Efficiently find values in a sorted order.
  * - **Sorting**: In-order traversal of a BST results in sorted order.
  * - **Implementing Abstract Data Types**: Such as lookup tables, sets, and priority queues.
+ * 
+ * Tree traversal
+ * 
+ *                  10
+ *                /   \
+ *               5     15
+ *             /  \
+ *            3    7
+ * 
+ * Visiting every node in the tree 
+ * A hierarchical data structure like a tree can be traversed in different ways
+ *      1. Depth first search (DFS)
+ *      2. Breadth first search (BFS)
+ * 
+ * Depth first search(DFS)
+ * The DFS algorithm start at the root node and explores as fas as possible along each branch before backtracking
+ * Visit the root node, visit all the nodes in the left subtree and visit all the nodes in the right subtree
+ * 
+ * Depending on the order in which we do this, there can be three types of DFS traversals
+ * DFS Variants:
+ * - **In-order Traversal**: Visit the left subtree, the root (Read the data), then the right subtree. So the order will be 3, 5, 7, 10, 15
+ * - **Pre-order Traversal**: Visit the root (Read the data), the left subtree, then the right subtree. So the order will be 10, 5, 3, 7, 15 in pre-order
+ * - **Post-order Traversal**: Visit the left subtree, the right subtree, then the root (Read the data).
  * 
  */
 
@@ -126,11 +147,63 @@ class BinarySearchTree {
             this.insertNode(this.root, node);
         }
     }
+
+    search(root, value){
+        if(!root) return false;
+        
+        if(value === root.value) return true;
+        if(value < root.value){
+            return this.search(root.left, value);
+        }else{
+            return this.search(root.right, value);
+        }
+    }
+
+    preOrder(root){
+        if(root){
+            console.log(root.value);
+            this.preOrder(root.left);
+            this.preOrder(root.right);
+        }
+    }
+
+    inOrder(root){
+        if(root){
+            this.inOrder(root.left);
+            console.log(root.value);
+            this.inOrder(root.right);
+        }
+    }
+
+    postOrder(root){
+        if(root){
+            this.postOrder(root.left);
+            this.postOrder(root.right);
+            console.log(root.value);
+        }
+    }
 }
 
 
 const bst = new BinarySearchTree()
-console.log("IS tree empty?", bst.isEmpty());
+console.log("Is tree empty?", bst.isEmpty());
 bst.insert(10);
 bst.insert(5);
 bst.insert(15);
+bst.insert(3);
+bst.insert(7);
+
+console.log("Is 5 exist in the tree?", bst.search(bst.root, 5));
+console.log("Is 20 exist in the tree?", bst.search(bst.root, 20));
+
+console.log("===== Pre Order =====");
+bst.preOrder(bst.root);
+
+
+console.log("===== In Order =====");
+bst.inOrder(bst.root);
+
+
+
+console.log("===== Post Order =====");
+bst.postOrder(bst.root);

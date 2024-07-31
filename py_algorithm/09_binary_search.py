@@ -162,12 +162,11 @@ class Solution3:
         # if left index is greater than right index that means we are out of the loop, the condition is failed in while loop and we did not found the target value
         return -1
 
-arr = [-1,0,3,5,9,12]
+
+arr = [-1, 0, 3, 5, 9, 12]
 sol3 = Solution3()
 sol3_case_1 = sol3.search(arr, 9)
-print(sol3_case_1) # Expected 4
-
-
+print(sol3_case_1)  # Expected 4
 
 # https://www.youtube.com/watch?v=K-RYzDZkzCI
 # https://www.youtube.com/watch?v=GnZ9ppr_zaI
@@ -206,6 +205,8 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
+
 class Solution4:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         # Recursively Big-O= O(n)
@@ -221,6 +222,7 @@ class Solution4:
 
         inorder(root)
         return res
+
 
 class Solution5:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
@@ -238,7 +240,6 @@ class Solution5:
             res.append(curr.val)
             curr = curr.right
         return res
-
 
 
 # Helper function to build tree from list
@@ -265,9 +266,9 @@ sol4 = Solution4()
 root1 = build_tree([1, None, 2, 3])
 root2 = build_tree([])
 
-print({'inorder_traversal (Recursive): ': sol4.inorderTraversal(root1)}) # Expected [1,3,2]
-print({'inorder_traversal (Recursive): ': sol4.inorderTraversal(root2)}) # Expected []
+print({'inorder_traversal (Recursive): ': sol4.inorderTraversal(root1)})  # Expected [1,3,2]
+print({'inorder_traversal (Recursive): ': sol4.inorderTraversal(root2)})  # Expected []
 
 sol5 = Solution5()
-print({'inorder_traversal (Iterative): ': sol5.inorderTraversal(root1)}) # Expected [1,3,2]
-print({'inorder_traversal (Iterative): ': sol5.inorderTraversal(root2)}) # Expected [1,3,2]
+print({'inorder_traversal (Iterative): ': sol5.inorderTraversal(root1)})  # Expected [1,3,2]
+print({'inorder_traversal (Iterative): ': sol5.inorderTraversal(root2)})  # Expected [1,3,2]

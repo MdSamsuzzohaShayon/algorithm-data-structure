@@ -8,6 +8,8 @@
  * - [Tutorial-4](https://youtu.be/lml2E9SIJHo?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP)
  * - [Tutorial-5](https://youtu.be/n6_Ruq1qvjU?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP)
  * - [Tutorial-6](https://www.youtube.com/watch?v=H0i3gk1h0lI&list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP&index=71)
+ * - [Tutorial-7](https://youtu.be/mrzE5SqzoQY?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP)
+ * - [Tutorial-8](https://youtu.be/80GhW9X1MGI?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP)
  * 
  * Overview:
  * A tree is a hierarchical, non-linear data structure consisting of nodes connected by edges. Unlike linear data structures 
@@ -65,11 +67,11 @@
  * A type of binary tree where the value of each left child node must be smaller than the parent node, and the value of each right child node must be greater than the parent node.
  * 
  * Operations:
- * - **Insertion**: Add a node to the tree. Start at the root and traverse the tree to find the correct location for the new node.
- * - **Search**: Find a node given its value. Start at the root and traverse the tree, comparing the target value with each node's value.
- * - **Depth-First Search (DFS)**: Traverse the tree by exploring as far as possible along each branch before backtracking. Includes in-order, pre-order, and post-order traversals.
- * - **Breadth-First Search (BFS)**: Traverse the tree level by level, visiting all nodes at the present depth level before moving on to nodes at the next depth level.
- * - **Deletion**: Remove a node given its value. This can be complex, involving three main cases: the node is a leaf, the node has one child, or the node has two children.
+ * - **Insertion**: Add a node to the tree. Start at the root and traverse the tree to find the correct location for the new node. O(log n) on average, O(n) in the worst case
+ * - **Search**: Find a node given its value. Start at the root and traverse the tree, comparing the target value with each node's value. O(log n) on average, O(n) in the worst case
+ * - **Depth-First Search (DFS)**: Traverse the tree by exploring as far as possible along each branch before backtracking. Includes in-order, pre-order, and post-order traversals. 
+ * - **Breadth-First Search (BFS)**: Traverse the tree level by level, visiting all nodes at the present depth level before moving on to nodes at the next depth level. 
+ * - **Deletion**: Remove a node given its value. This can be complex, involving three main cases: the node is a leaf, the node has one child, or the node has two children. O(log n) on average, O(n) in the worst case
  * 
  * 
  * Binary Search Tree (BST) Usage:
@@ -112,131 +114,190 @@
  *              c. Enqueue the left child of the node if it is exists
  *              d. Enqueue the right child of the node if it is exists
  * 
+ * Delete
+ * Delete a node that is leaf node (No child of the node)
+ * Delete a node that has one child node, in this case, remove the node and replace it with it's child
+ * Delete a node that has two child node, in that case, copy the value of inorder successor and delete the in order successor
  */
 
 
 
-
-
 class Node {
+    // Constructor to create a new Node
     constructor(value) {
-        this.value = value;
-        this.left = null;
-        this.right = null;
+        this.value = value; // Value of the node
+        this.left = null; // Left child
+        this.right = null; // Right child
     }
 }
-
 
 class BinarySearchTree {
+    // Constructor to create an empty BST
     constructor() {
-        this.root = null;
+        this.root = null; // Root of the BST
     }
 
+    // Check if the tree is empty
     isEmpty() {
-        return this.root === null;
+        return this.root === null; // Returns true if the tree is empty
     }
 
-    insertNode(root, node){
-        if(node.value < root.value){ // Left child node must be smaller than the parent node
-            if(root.left === null){
-                root.left = node;
-            }else{
-                this.insertNode(root.left, node);
-            }
-        }else{
-            if(root.right === null){
-                root.right = node;
-            }else{
-                this.insertNode(root.right, node);
-            }
-        }
-    }
-
+    // Insert a new node into the tree
     insert(value) {
-        const node = new Node(value);
+        const newNode = new Node(value); // Create a new node
         if (this.isEmpty()) {
-            this.root = node;
-        }else{
-            this.insertNode(this.root, node);
+            this.root = newNode; // If tree is empty, set the root to the new node
+        } else {
+            this.insertNode(this.root, newNode); // Otherwise, insert the node at the correct position
         }
     }
 
-    search(root, value){
-        if(!root) return false;
-        
-        if(value === root.value) return true;
-        if(value < root.value){
-            return this.search(root.left, value);
-        }else{
-            return this.search(root.right, value);
+    // Helper function to insert a node into the correct position
+    insertNode(root, newNode) {
+        if (newNode.value < root.value) { // Left child node must be smaller than the parent node
+            if (root.left === null) {
+                root.left = newNode; // Insert as the left child
+            } else {
+                this.insertNode(root.left, newNode); // Recur down the left subtree
+            }
+        } else { // Right child node must be greater than or equal to the parent node
+            if (root.right === null) {
+                root.right = newNode; // Insert as the right child
+            } else {
+                this.insertNode(root.right, newNode); // Recur down the right subtree
+            }
         }
     }
 
-    preOrder(root){
-        if(root){
-            console.log(root.value);
-            this.preOrder(root.left);
-            this.preOrder(root.right);
+    // Search for a node with a given value
+    search(root, value) {
+        if (!root) return false; // Base case: the node is not found
+
+        if (value === root.value) return true; // Node is found
+        if (value < root.value) {
+            return this.search(root.left, value); // Search in the left subtree
+        } else {
+            return this.search(root.right, value); // Search in the right subtree
         }
     }
 
-    inOrder(root){
-        if(root){
-            this.inOrder(root.left);
-            console.log(root.value);
-            this.inOrder(root.right);
+    // Pre-order traversal: Root -> Left -> Right
+    preOrder(root) {
+        if (root) {
+            console.log(root.value); // Visit the root node
+            this.preOrder(root.left); // Traverse the left subtree
+            this.preOrder(root.right); // Traverse the right subtree
         }
     }
 
-    postOrder(root){
-        if(root){
-            this.postOrder(root.left);
-            this.postOrder(root.right);
-            console.log(root.value);
+    // In-order traversal: Left -> Root -> Right
+    inOrder(root) {
+        if (root) {
+            this.inOrder(root.left); // Traverse the left subtree
+            console.log(root.value); // Visit the root node
+            this.inOrder(root.right); // Traverse the right subtree
         }
     }
 
-    // BFS Approach
-    levelOrder(){
+    // Post-order traversal: Left -> Right -> Root
+    postOrder(root) {
+        if (root) {
+            this.postOrder(root.left); // Traverse the left subtree
+            this.postOrder(root.right); // Traverse the right subtree
+            console.log(root.value); // Visit the root node
+        }
+    }
+
+    // Level-order traversal (BFS)
+    levelOrder() {
         const queue = [];
-        queue.push(this.root);
-        while(queue.length){
-            let curr = queue.shift();
-            console.log(curr.value);
-            if(curr.left) {
-                queue.push(curr.left);
+        queue.push(this.root); // Start with the root node
+        while (queue.length) {
+            let currentNode = queue.shift(); // Dequeue the current node
+            console.log(currentNode.value); // Visit the current node
+            if (currentNode.left) {
+                queue.push(currentNode.left); // Enqueue the left child
             }
-            if(curr.right){
-                queue.push(curr.right);
+            if (currentNode.right) {
+                queue.push(currentNode.right); // Enqueue the right child
             }
         }
+    }
+
+    // Find the minimum value node in the tree
+    min(root) {
+        if (!root.left) {
+            return root.value; // The minimum value is found
+        } else {
+            return this.min(root.left); // Keep traversing the left subtree
+        }
+    }
+
+    // Find the maximum value node in the tree
+    max(root) {
+        if (!root.right) {
+            return root.value; // The maximum value is found
+        } else {
+            return this.max(root.right); // Keep traversing the right subtree
+        }
+    }
+
+    // Delete a node from the tree
+    delete(value) {
+        this.root = this.deleteNode(this.root, value); // Start the deletion process from the root
+    }
+
+    // Helper function to delete a node
+    deleteNode(root, value) {
+        if (root === null) return root; // Base case: the node is not found
+
+        if (value < root.value) {
+            root.left = this.deleteNode(root.left, value); // Traverse the left subtree
+        } else if (value > root.value) {
+            root.right = this.deleteNode(root.right, value); // Traverse the right subtree
+        } else {
+            // Node with only one child or no child
+            if (!root.left) {
+                return root.right;
+            } else if (!root.right) {
+                return root.left;
+            }
+            // Node with two children: Get the inorder successor (smallest in the right subtree)
+            root.value = this.min(root.right);
+            // Delete the inorder successor
+            root.right = this.deleteNode(root.right, root.value);
+        }
+        return root;
     }
 }
 
+// Example usage:
+const bst = new BinarySearchTree();
+console.log("Is tree empty?", bst.isEmpty()); // true
 
-const bst = new BinarySearchTree()
-console.log("Is tree empty?", bst.isEmpty());
 bst.insert(10);
 bst.insert(5);
 bst.insert(15);
 bst.insert(3);
-bst.insert(7);
 
-console.log("Is 5 exist in the tree?", bst.search(bst.root, 5));
-console.log("Is 20 exist in the tree?", bst.search(bst.root, 20));
+console.log("Is 5 exist in the tree?", bst.search(bst.root, 5)); // true
+console.log("Is 20 exist in the tree?", bst.search(bst.root, 20)); // false
 
 console.log("===== Pre Order =====");
-bst.preOrder(bst.root);
-
+bst.preOrder(bst.root); // 10, 5, 3, 15
 
 console.log("===== In Order =====");
-bst.inOrder(bst.root);
-
-
+bst.inOrder(bst.root); // 3, 5, 10, 15
 
 console.log("===== Post Order =====");
-bst.postOrder(bst.root);
-
+bst.postOrder(bst.root); // 3, 5, 15, 10
 
 console.log("===== Level Order =====");
-bst.levelOrder();
+bst.levelOrder(); // 10, 5, 15, 3
+
+console.log("Minimum node:", bst.min(bst.root)); // 3
+console.log("Maximum node:", bst.max(bst.root)); // 15
+
+console.log("===== Delete =====");
+bst.delete(15);
+bst.levelOrder(); // 10, 5, 3

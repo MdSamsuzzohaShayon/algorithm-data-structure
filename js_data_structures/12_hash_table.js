@@ -91,9 +91,29 @@ class HashTable {
      * @param {*} value - The value to be stored.
      */
     set(key, value) {
+        // Hash the key to get the index where the value should be stored.
         const index = this.hash(key);
-        this.table[index] = value;
+
+        // Retrieve the bucket (linked list) at the hashed index.
+        const bucket = this.table[index];
+
+        // If there is no bucket at this index, create a new bucket (array of key-value pairs).
+        if (!bucket) {
+            this.table[index] = [[key, value]];
+        } else {
+            // If a bucket exists, find the item with the same key.
+            const sameKeyItem = bucket.find(item => item[0] === key);
+
+            if (sameKeyItem) {
+                // If an item with the same key is found, update its value.
+                sameKeyItem[1] = value;
+            } else {
+                // If no item with the same key is found, add a new key-value pair to the bucket.
+                bucket.push([key, value]);
+            }
+        }
     }
+
 
     /**
      * Get Function
@@ -106,7 +126,15 @@ class HashTable {
      */
     get(key) {
         const index = this.hash(key);
-        return this.table[index];
+        // return this.table[index];
+        const bucket = this.table[index];
+        if (bucket) {
+            const sameKeyItem = bucket.find(item => item[0] === key);
+            if (sameKeyItem) {
+                return sameKeyItem[1];
+            }
+        }
+        return undefined;
     }
 
     /**
@@ -119,7 +147,12 @@ class HashTable {
      */
     remove(key) {
         const index = this.hash(key);
-        this.table[index] = undefined;
+        // this.table[index] = undefined;
+        const bucket = this.table[index];
+        if(bucket){
+            const sameKeyItem = bucket.find(item=> item[0] === key);
+            if(sameKeyItem) bucket.splice(bucket.indexOf(sameKeyItem), 1);
+        }
     }
 
     /**
@@ -142,7 +175,12 @@ const table = new HashTable(50);
 table.set("name", "Neymar JR");
 table.set("age", 30);
 table.display();
-// console.log(table.get("name"));
+console.log(table.get("name"));
 // table.remove("name");
 table.set("name", "Hulk"); // Overwrite
+table.set("mane", "The Increadiable"); // mane and same will have same value when hash their string unicode
 table.display();
+table.remove("mane");
+table.display();
+
+// Average time complexity is O(1)

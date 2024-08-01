@@ -157,3 +157,5 @@ const activities = [
     { start: 8, end: 9 }
 ];
 console.log(activitySelection(activities)); // Output: [{start: 1, end: 3}, {start: 4, end: 6}, {start: 6, end: 7}, {start: 8, end: 9}]
+
+

@@ -40,6 +40,7 @@ There are 3 chairs and 3 students (1 girl and 2 boys) who can sit there. We can 
 ## Example 1: Substring Search
 """
 
+
 def brute_force_substring_search(text, pattern):
     n = len(text)  # Length of the text
     m = len(pattern)  # Length of the pattern
@@ -55,6 +56,7 @@ def brute_force_substring_search(text, pattern):
             return i  # Return the starting index of the match
     return -1  # No match found
 
+
 text = "hello world"
 pattern = "world"
 result = brute_force_substring_search(text, pattern)
@@ -63,6 +65,7 @@ print(result)  # Output: 6 (the index of the match)
 """
 ## Example 2: Brute Force Password Cracking
 """
+
 
 def brute_force_password_cracking(password):
     chars = 'abcdefghijklmnopqrstuvwxyz'  # Possible characters
@@ -82,6 +85,7 @@ def brute_force_password_cracking(password):
         return None
 
     return generate_combination('')
+
 
 password = 'abc'
 result = brute_force_password_cracking(password)

@@ -57,10 +57,11 @@ However, with good pivot selection, the worst-case complexity is rare.
 Quick Sort has a space complexity of O(log n) due to the stack space used by recursion.
 
 """
-from typing import List 
+from typing import List
+
 
 # https://youtu.be/kFeXwkgnQ9U
-def quick_sort(sequence: List[int])-> List[int]:
+def quick_sort(sequence: List[int]) -> List[int]:
     # Get the length of the input sequence (list)
     length: int = len(sequence)
 
@@ -88,10 +89,9 @@ def quick_sort(sequence: List[int])-> List[int]:
     # Combine the sorted items_lower, pivot, and sorted items_greater to form the final sorted list
     return quick_sort(items_lower) + [pivot] + quick_sort(items_greater)
 
+
 # Example usage:
 print(quick_sort([1, 7, 5, 9, 8, 2, 0, 6, 3, 4]))
-
-
 
 
 # https://youtu.be/5iSZ7mh_RAk
@@ -105,6 +105,7 @@ def swap(a, b, arr):
         arr[a] = arr[b]
         arr[b] = tmp
 
+
 # Recursive Quick Sort function
 def quick_sort_two(elements, start, end):
     # Base case: if the starting index is less than the ending index
@@ -115,6 +116,7 @@ def quick_sort_two(elements, start, end):
         quick_sort_two(elements, start, pi - 1)
         # Recursively apply Quick Sort to the right subarray
         quick_sort_two(elements, pi + 1, end)
+
 
 # Partition function using Hoare's partition scheme
 def partition(elements, start, end):
@@ -139,6 +141,7 @@ def partition(elements, start, end):
     # Return the end index as the pivot index
     return end
 
+
 # Example usage
 elements = [11, 9, 29, 7, 2, 15, 28]
 # Uncomment the following line to test with strings
@@ -160,5 +163,73 @@ tests = [
 for elements in tests:
     quick_sort_two(elements, 0, len(elements) - 1)
     print(f'Sorted array: {elements}')
+
+
+
+
+"""
+Tutorial-3: https://youtu.be/4xbWSRZHqac
+Leetcode: https://leetcode.com/problems/sort-colors/description/
+
+75. Sort Colors
+
+Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
+You must solve this problem without using the library's sort function.
+
+
+Example 1:
+    Input: nums = [2,0,2,1,1,0]
+    Output: [0,0,1,1,2,2]
+
+Example 2:
+    Input: nums = [2,0,1]
+    Output: [0,1,2]
+ 
+
+Constraints:
+    n == nums.length
+    1 <= n <= 300
+    nums[i] is either 0, 1, or 2.
+ 
+
+Follow up: Could you come up with a one-pass algorithm using only constant extra space?
+"""
+
+
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        left, right = 0, len(nums) - 1
+        i = 0
+
+        def swap(i, j):
+            temp = nums[i]
+            nums[i] = nums[j]
+            nums[j] = temp
+
+        while i<= right:
+            if nums[i] == 0:
+                swap(left, i)
+                left += 1
+
+            elif nums[i] == 2:
+                swap(i, right)
+                right -= 1
+                i -= 1
+
+            i += 1
+
+        # can not return
+        print(nums)
+
+
+sol = Solution()
+print("===== Quicksort Partition =====")
+sol.sortColors([2,0,2,1,1,0])
+
+
 
 

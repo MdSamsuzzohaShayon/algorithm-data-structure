@@ -1,5 +1,7 @@
 """
-Tutorial: https://youtu.be/DKCbsiDBN6c
+Tutorial-1: https://youtu.be/DKCbsiDBN6c
+Tutorial-2: https://youtu.be/Yan0cv2cLy8
+
 For any given problem, try all possible solution and pick up desired solution
 Backtracking: Back tracking follows Depth First Search (DFS)
 Branch and bound: Breath First Search (BFS)

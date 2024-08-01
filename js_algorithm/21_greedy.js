@@ -1,6 +1,7 @@
 /**
  * Tutorial-1: https://youtu.be/HzeK7g8cD0Y
  * Tutorial-2: https://youtu.be/lfQvPHGtu6Q
+ * Tutorial-3: https://youtu.be/3H2G3KuEiRU
  * 
  * 
  * An algorithm paradigram that follows the problem solving approach of making the locally optimal choice at each stage with the hope of finding a global optimum.
@@ -157,5 +158,14 @@ const activities = [
     { start: 8, end: 9 }
 ];
 console.log(activitySelection(activities)); // Output: [{start: 1, end: 3}, {start: 4, end: 6}, {start: 6, end: 7}, {start: 8, end: 9}]
+
+
+console.log("===== Break =====");
+/**
+ * Choose the best possible solution
+ * If feasible, add it to the solution set
+ * If not, reject it and do not consider it again
+ * Keep repeating, until we reach the end
+ */
 
 

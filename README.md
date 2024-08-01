@@ -147,7 +147,7 @@
  - By starting the smaller array that are sorted as they grow merge sort has to execute fewer sort operations than if it sorted the entire array at once
  - Solving a problem like this by recursively breaking down the problem into subpart until it is easily solved is an algorithmic strategy known as *divide and conquer*
 
-### Leetcode patterns
+### Leetcode common patterns
  - [Tutorial](https://www.youtube.com/watch?v=xo7XrRVxH8Y)
  - Focus on pattern that repeat over an over again
    1. Sliding window pattern 
@@ -158,6 +158,18 @@
    6. Topological sort
    7. Binary tree BFS
    8. Two pointer
+
+### Solve ANY LeetCode Problem (Step-by-Step)
+  - [Tutorial](https://youtu.be/OTNe0eV8418)
+   1. Simplify problem. Ask plenty of questions in the interview
+   2. [Pattern recognition](https://algo.monster/flowchart)
+        a. Straightforward solution
+        b. Optimal solution
+   3. Implement plan
+   4. Coding time
+   5. Debug: There are 2 types of code that we will ever going to face
+        a. If the code does not run it is a syntex error
+        b. If code runs but tests fails it is an implementation error
 
 
 ### Further Learning
@@ -174,6 +186,10 @@
     - Prim's, Kruskal's and Floyd's algorithms
     - Solve problems that utilize these data structures
 
+### Platforms to use
+ - AlgoExperts
+ - [AlgoMonster](https://algo.monster/flowchart)
+ - Leetcode
 
 ####
 https://www.youtube.com/watch?v=Fo2Qnw5pMGo&list=PLC3y8-rFHvwiRYB4-HHKHblh3_bQNJTMa&index=3

@@ -3,3 +3,7 @@
 
 #### Part-1: Memoization
 #### Part-2: Tabulation
+
+- canSum -> Decision Problem
+- howSum -> Combinaroeic Problem
+- bestSum -> Optimization Problem

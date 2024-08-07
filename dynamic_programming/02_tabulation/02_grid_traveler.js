@@ -63,4 +63,13 @@ console.log(gridTraveler(18, 18)); // Output: 2333606220
  * - Memoization: Another dynamic programming approach using a top-down method with caching
  * - Space Optimization: Techniques to reduce space complexity in dynamic programming
  * - Common DP Problems: Coin change, longest common subsequence, knapsack problem, etc.
+ * 
+ * 
+ * Tabulation Recipe
+ *  - Visualize the problem as a table
+ *  - Size the table based on the inputs
+ *  - Initialize the table with default values
+ *  - See the trivial answer into the table
+ *  - Iterate through the table
+ *  - Fill further positions base on the current position
  */

@@ -27,3 +27,8 @@
    6. Topological sort
    7. Binary tree BFS
    8. Two pointer
+
+
+### Task & Theories
+
+ - Create theoretical common interview questions (theoretical questions with answer) and tasks for counting prime numbers in terms of DSA. (Make it inside Py comment document)

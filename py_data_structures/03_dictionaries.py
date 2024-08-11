@@ -98,6 +98,4 @@ for key, value in student.items():
     # Time Complexity: O(n) - Where n is the number of key-value pairs in the dictionary.
     # Space Complexity: O(1) - Iteration does not require additional space proportional to the size of the dictionary.
 
-# Make comments and explain everything in comments. Add more explanation in here in form of comments in terms of data structure.
-# Determine time ande space complexity (in comments).
-# And use static typing properly
+# Make comments and explain everything in the comments. Add more explanation here in the form of comments in terms of data structure. Determine time and space complexity (in comments). And use static typing properly

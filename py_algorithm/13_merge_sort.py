@@ -46,7 +46,7 @@ The space complexity of Merge Sort is O(n) because it requires additional space 
 
 
 # Define the merge_sort function which takes a list of integers as input.
-def merge_sort(arr: List[int]):
+def recursive_merge_sort(arr: List[int]):
     # If the array has more than one element, proceed to split and sort it.
     if len(arr) > 1:
         # Divide the array into two halves.
@@ -54,8 +54,8 @@ def merge_sort(arr: List[int]):
         right_arr = arr[len(arr) // 2:]
 
         # Recursively call merge_sort on each half to sort them.
-        merge_sort(left_arr)
-        merge_sort(right_arr)
+        recursive_merge_sort(left_arr)
+        recursive_merge_sort(right_arr)
 
         # Initialize three indices to keep track of the current position
         # in the left array (i), right array (j), and the merged array (k).
@@ -94,8 +94,103 @@ def merge_sort(arr: List[int]):
 
 # Test the merge_sort function with a sample array.
 arr_test: List[int] = [3, 4, 6, 5, 6, 2, 3, 8, 0, 1, 0, 3, 8, 2, 7, 9, 1]
-merge_sort(arr_test)
+recursive_merge_sort(arr_test)
 print(arr_test)  # Output: [0, 0, 1, 1, 2, 2, 3, 3, 3, 4, 5, 6, 6, 7, 8, 8, 9]
+
+
+"""
+Tutorial-1: https://youtu.be/xleF7ykgcHY
+Tutorial-2: https://youtu.be/3j0SWDX4AtU
+
+ite_list = [8, 3, 7, 4, 9, 2, 6, 5] # length 8
+This list need to be4 divided into 8 different lists, each list contains 1 element. If there is only one element in a list it is sorted by default.
+If the array is sorted we can merge them into another array. We need to pick up 2 list at a time and merge them
+
+Iterative Merge Sort
+Explanation:
+- Merge Sort is a divide-and-conquer algorithm that works by dividing the array into smaller subarrays, sorting those subarrays, and then merging them back together.
+- Unlike the recursive version, the iterative version of merge sort sorts the array in a bottom-up manner, starting with smaller subarrays and gradually merging them into larger sorted subarrays.
+
+"""
+
+
+def iterative_merge_sort(arr: List[int]) -> List[int]:
+    # Get the length of the array
+    n = len(arr)
+
+    # Start with subarrays of size 1, then 2, 4, 8, etc.
+    curr_size = 1
+
+    # Outer loop for the size of subarrays to be merged
+    while curr_size < n:
+
+        # Inner loop for selecting subarray pairs to be merged
+        # Left subarray starts from index left
+        left = 0
+        while left < n:
+            # Calculate the middle point and the end of the right subarray
+            mid = min(left + curr_size - 1, n - 1)
+            right = min(left + 2 * curr_size - 1, n - 1)
+
+            # Merge the two subarrays [left...mid] and [mid+1...right]
+            merge(arr, left, mid, right)
+
+            # Move to the next pair of subarrays
+            left += 2 * curr_size
+
+        # Increase the size of the subarrays to be merged
+        curr_size *= 2
+
+    return arr
+
+
+def merge(arr: List[int], left: int, mid: int, right: int) -> None:
+    """
+    This function merges two sorted subarrays of arr.
+    The first subarray is arr[left:mid+1].
+    The second subarray is arr[mid+1:right+1].
+    """
+
+    # Create temporary arrays to hold the elements of the subarrays
+    left_subarray = arr[left:mid + 1]
+    right_subarray = arr[mid + 1:right + 1]
+
+    # Initialize pointers for left_subarray, right_subarray, and the main array
+    i, j, k = 0, 0, left
+
+    # Merge the subarrays back into the original array in sorted order
+    while i < len(left_subarray) and j < len(right_subarray):
+        if left_subarray[i] <= right_subarray[j]:
+            arr[k] = left_subarray[i]
+            i += 1
+        else:
+            arr[k] = right_subarray[j]
+            j += 1
+        k += 1
+
+    # Copy any remaining elements of left_subarray (if any)
+    while i < len(left_subarray):
+        arr[k] = left_subarray[i]
+        i += 1
+        k += 1
+
+    # Copy any remaining elements of right_subarray (if any)
+    while j < len(right_subarray):
+        arr[k] = right_subarray[j]
+        j += 1
+        k += 1
+
+
+# Example usage of the iterative merge sort:
+arr = [12, 11, 13, 5, 6, 7]
+print("Original array:", arr)
+
+sorted_arr = iterative_merge_sort(arr)
+print("Sorted array:", sorted_arr)
+
+# Expected Output:
+# Original array: [12, 11, 13, 5, 6, 7]
+# Sorted array: [5, 6, 7, 11, 12, 13]
 
 
 """
@@ -114,7 +209,7 @@ Example 1:
 Example 2:
     Input: nums = [5,1,1,2,0,0]
     Output: [0,0,1,1,2,5]
-    Explanation: Note that the values of nums are not necessairly unique.
+    Explanation: Note that the values of nums are not necessary unique.
  
 Constraints:
     1 <= nums.length <= 5 * 104

@@ -22,7 +22,7 @@ This file provides a detailed theoretical explanation of common data structures,
 
 
 # 1. Arrays
-# Arrays are collections of elements stored in contiguous memory locations. Each element can be accessed directly via its index.
+#  are collections of elements stored in contiguous memory locations. Each element can be accessed directly via its index.
 # Real-world Application: A typical use of an array is to store a list of student grades or IDs.
 # For example, you might use an array to keep track of monthly sales figures where each element represents a month's total sales.
 # Advantages: Simple and fast access to elements using indices.

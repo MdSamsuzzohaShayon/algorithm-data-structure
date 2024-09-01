@@ -9,16 +9,16 @@ from typing import List
 
 class Stack:
     def __init__(self):
-        self.items: List[str] = []
+        self._items: List[str] = []
 
     def push(self, element: str):
-        self.items.append(element)
+        self._items.append(element)
 
     def pop(self):
-        return self.items.pop()
+        return self._items.pop()
 
     def peek(self):
-        return self.items[-1]
+        return self._items[-1]
 
 
 # Last in first out (LIFO)

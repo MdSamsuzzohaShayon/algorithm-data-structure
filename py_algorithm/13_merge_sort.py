@@ -38,7 +38,7 @@ In this case, the array is already sorted and is returned as is.
 
 Time Complexity:
 The time complexity of Merge Sort is O(n log n), where n is the number of elements in the array.
-This is because the array is divided into two halves (log n times), and merging the halves takes linear time (n).
+This is because the array is divided into two halves (log n) times, and merging the halves takes linear time (n).
 
 Space Complexity:
 The space complexity of Merge Sort is O(n) because it requires additional space to store the temporary arrays during merging.
@@ -77,8 +77,7 @@ def recursive_merge_sort(arr: List[int]):
                 j += 1  # Move the index of the right array forward.
             k += 1  # Move the index of the merged array forward.
 
-        # If there are any remaining elements in the left array,
-        # add them to the merged array.
+        # If there are any remaining elements in the left array, add them to the merged array.
         while i < len(left_arr):
             arr[k] = left_arr[i]
             i += 1

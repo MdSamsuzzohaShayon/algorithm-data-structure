@@ -1,34 +1,32 @@
 from typing import List
-# The goal is to merge the two arrays in O(m + n) time complexity and store the result in-place in nums1.
-
-"""
-Approach:
-        - We use a two-pointer technique starting from the end of nums1 and nums2 to merge the arrays in reverse.
-        - We start from the back of nums1 and nums2 since nums1 has extra space at the end.
-        - We compare elements from the end and insert the larger of the two elements at the correct position.
-"""
 
 
 class Solution:
-    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
-        x, y = m - 1, n - 1
+    def removeElement(self, nums: List[int], val: int) -> int:
+        k = 0
 
-        # Looping all list (nums1 and nums2) in decreasing order
-        for z in range(m + n - 1, -1, -1):
-            if x < 0:
-                nums1[z] = nums2[y]
-                y -= 1
-            elif y < 0:
-                break
-            elif nums1[x] > nums2[y]:
-                nums1[z] = nums1[x]
-                x -= 1
-            else:
-                nums1[z] = nums2[y]
-                y -= 1
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[k] = nums[i]
+                k += 1
+
+        return k
 
 
-sol = Solution()
-n1 = [1, 2, 3, 0, 0, 0]
-sol.merge(nums1=n1, m=3, nums2=[2, 5, 6], n=3)
-print(n1)
+def test_remove_element():
+    solution = Solution()
+
+    # Test Case 1
+    nums1 = [3, 2, 2, 3]
+    val1 = 3
+    k1 = solution.removeElement(nums1, val1)
+    print(f"Test Case 1: k = {k1}, nums = {nums1[:k1]}")  # Output should be k = 2, nums = [2, 2]
+
+    # Test Case 2
+    nums2 = [0, 1, 2, 2, 3, 0, 4, 2]
+    val2 = 2
+    k2 = solution.removeElement(nums2, val2)
+    print(f"Test Case 2: k = {k2}, nums = {nums2[:k2]}")  # Output should be k = 5, nums = [0, 1, 3, 0, 4]
+
+
+test_remove_element()

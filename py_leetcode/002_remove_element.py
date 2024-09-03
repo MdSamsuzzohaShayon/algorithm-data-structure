@@ -50,17 +50,56 @@ Constraints:
     0 <= val <= 100
 """
 
+
 # Algorithm - Two-Pointer Technique
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
+        """
+        This function modifies the input array `nums` in-place to remove all occurrences of `val`.
+        It returns the number of elements remaining in `nums` that are not equal to `val`.
+
+        Approach:
+        - Use a two-pointer technique where `k` serves as the index for placing valid elements.
+        - Iterate through the array, and whenever an element is not equal to `val`, move it to
+          the position indicated by `k` and then increment `k`.
+
+        Parameters:
+        - nums: List[int], the input array that may contain elements to be removed.
+        - val: int, the value that should be removed from `nums`.
+
+        Returns:
+        - k: int, the number of elements in `nums` that are not equal to `val`.
+        """
+
+        # `k` will keep track of the index where we will place the next valid element
+        # that is not equal to `val`.
         k = 0
 
+        # Iterate through each element in the array `nums`.
         for i in range(len(nums)):
+
+            # Check if the current element `nums[i]` is not equal to `val`.
             if nums[i] != val:
-                # Partition Algorithm
+                # Partition Algorithm: Place `nums[i]` at index `k`, which is the next position
+                # for a valid element, and increment `k`.
                 nums[k] = nums[i]
-                k += 1
+                k += 1  # Increment `k` for the next valid element.
+
+        # Return the total number of valid elements, which is stored in `k`.
         return k
+
+
+# Time Complexity: O(n)
+# - We iterate through the array `nums` once, where `n` is the length of the array.
+# - Each element is checked exactly once, making the time complexity O(n).
+
+# Space Complexity: O(1)
+# - The function modifies the input array in-place without using any additional space.
+# - Thus, the space complexity is O(1).
+
+# More Efficient Approach?
+# - This solution is already optimal in terms of time complexity (O(n)) and space complexity (O(1)).
+# - The partitioning technique used ensures that we overwrite the elements in-place, minimizing extra space usage.
 
 
 # Testing function

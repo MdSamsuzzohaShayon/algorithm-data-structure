@@ -11,4 +11,4 @@ This is my solution:
 ```
 
 I want you to explain my solution fully in Python comments. Please provide a detailed explanation of the algorithm used, the time complexity, space complexity,
-and make the solution more efficient if possible. Write everything inside Python comments.
+and make the solution more efficient if possible. Create another solution with better time and space complexity. Write everything inside Python comments.

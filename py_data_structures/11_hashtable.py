@@ -1,5 +1,10 @@
 from typing import Any, List, Tuple, Optional
 
+"""
+Tutorial-1: https://youtu.be/ea8BRGxGmlA
+Tutorial-2: https://youtu.be/54iv1si4YCM
+"""
+
 
 class HashTable:
     def __init__(self, MAX: int = 100) -> None:

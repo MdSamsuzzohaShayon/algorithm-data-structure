@@ -76,18 +76,26 @@ class Solution:
         """
 
         # Initialize `res` to keep track of the current majority candidate and `count` to maintain the count balance.
-        res, count = 0, 0
+        candidate, count = 0, 0
 
         # Iterate through each element in the array
         for n in nums:
             # If the count is zero, assign the current element as the new candidate
             if count == 0:
-                res = n
+                candidate = n
             # Update the count: increment if the current element matches the candidate, otherwise decrement
-            count += (1 if n == res else -1)
+            if n == candidate:
+                count += 1
+            else:
+                count -= 1
 
         # Return the majority element found
-        return res
+        return candidate
+
+    # def majorityElement(self, nums: List[int]) -> int:
+    #     nums.sort()
+    #     n = len(nums)
+    #     return nums[n // 2]
 
 
 # Time Complexity: O(n)
@@ -102,4 +110,5 @@ class Solution:
 # The Boyer-Moore Voting Algorithm is the most efficient solution in terms of both time and space complexity.
 
 sol = Solution()
-print("Majority Element: ",sol.majorityElement([2,2,1,1,1,2,2]))
+print("Majority Element: ",sol.majorityElement([2, 2, 1, 9, 9, 9, 2, 2, 6, 6, 6]))
+# print(sol.majorityElement([2, 2, 1, 9, 9, 9, 2, 2, 6, 6, 6])) # Not working

@@ -1,17 +1,21 @@
 from typing import List
 
 
-class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
-        l = 1
+# Majority element
 
-        for r in range(1, len(nums)):
-            if nums[r] != nums[r-1]:
-                nums[l] = nums[r]
-                l += 1
-        return l
+def majority_element(nums: List[int]) -> int:
+    res: int = 0
+    count: int = 0
+    for n in nums:
+        if count == 0:
+            res = n
 
-sol = Solution()
-nums = [0,0,1,1,1,2,2,3,3,4]
-dup = sol.removeDuplicates(nums)
-print("Unique: ", nums[:dup])
+        if n == res:
+            count += 1
+        else:
+            count -= 1
+
+    return res
+
+
+print("Majority Element: ", majority_element([2, 2, 1, 9, 9, 9, 2, 2, 6, 6, 6]))

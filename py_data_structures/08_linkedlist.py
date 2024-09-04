@@ -1,15 +1,16 @@
-from typing import Any
+from typing import Any, Optional
 
 """
 Tutorial (02:23:00): https://youtu.be/8hly31xKli0?t=8580
 """
 
+
 # Node class to represent each element in the linked list
 class Node:
     def __init__(self, data: Any):
         # Initialize a Node with data and a pointer (next) set to None
-        self.data = data
-        self.next = None
+        self.data: Any = data
+        self.next: Node | Node = None
 
     def __repr__(self):
         # String representation of the Node, which shows its data value
@@ -24,7 +25,7 @@ class SinglyLinkedList:
 
     def __init__(self):
         # Initialize the linked list with head set to None (empty list)
-        self.head = None
+        self.head: None | Node = None
 
     def is_empty(self) -> bool:
         # Returns True if the list is empty, otherwise False
@@ -87,6 +88,13 @@ class SinglyLinkedList:
 
         return curr  # Return the removed node (or None if not found)
 
+    def remove_from_front(self) -> None | Node:
+        if self.is_empty():
+            return None
+        val = self.head.data
+        self.head = self.head.next
+        return val
+
     # Add a new element at the head of the list
     def add(self, element: Any) -> None:
         # O(1) complexity - Efficient for adding at the head
@@ -142,20 +150,13 @@ print("Remove: ", l.remove(50))  # Remove the node with value 50
 print(l)  # Print the list after removal
 
 
-
-
-
-
-
-
-from typing import Any, Optional
-
 # Node class for doubly linked list
 class DoublyNode:
     def __init__(self, data: Any):
         self.data: Any = data  # Data of the node
         self.prev: Optional['DoublyNode'] = None  # Reference to the previous node
         self.next: Optional['DoublyNode'] = None  # Reference to the next node
+
 
 # Doubly Linked List class
 class DoublyLinkedList:
@@ -211,6 +212,7 @@ class DoublyLinkedList:
             print(node.data, end=" <=> ")
             node = node.next
         print("None")
+
 
 # Example usage:
 dll = DoublyLinkedList()

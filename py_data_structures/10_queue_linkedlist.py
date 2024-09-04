@@ -1,7 +1,7 @@
 from typing import Any
 
 """
-Tutorial: https://youtu.be/-0ZIresFUZI?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP
+Tutorial: https://youtu.be/15q-fLZqo_0?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP
 """
 
 
@@ -22,15 +22,15 @@ class LinkedList:
     """
 
     def __init__(self):
-        self.head: Node | None = None
+        self._head: Node | None = None
 
     def is_empty(self) -> bool:
         # Returns True if the list is empty, otherwise False
-        return self.head is None
+        return self._head is None
 
     def size(self) -> int:
         # Returns the number of nodes in the list, complexity O(n)
-        curr: Node = self.head
+        curr: Node = self._head
         count: int = 0
         while curr:
             count += 1
@@ -45,7 +45,7 @@ class LinkedList:
             new_node = Node(element)
 
             pos: int = index
-            curr: Node | None = self.head
+            curr: Node | None = self._head
             while pos > 1:
                 curr = curr.next
                 pos -= 1
@@ -59,19 +59,19 @@ class LinkedList:
     def remove_from_front(self) -> None | Node:
         if self.is_empty():
             return None
-        val = self.head
-        self.head = self.head.next
+        val = self._head
+        self._head = self._head.next
         return val
 
     def remove(self, element: Any) -> Node | None:
-        curr: Node | None = self.head
+        curr: Node | None = self._head
         prev: Node | None = None
         found: bool = False
 
         while curr and not found:
-            if curr.data == element and curr == self.head:
+            if curr.data == element and curr == self._head:
                 found = True
-                self.head = curr.next
+                self._head = curr.next
             elif curr.data == element:
                 found = True
                 prev.next = curr.next
@@ -84,11 +84,23 @@ class LinkedList:
     # Prepend
     def prepend(self, element: Any) -> None:
         new_node = Node(element)
-        new_node.next = self.head
-        self.head = new_node
+        new_node.next = self._head
+        self._head = new_node
+
+    def append(self, element: Any) -> None:
+        # add element at the end of the list
+        new_node  = Node(element)
+        if self.is_empty():
+            self._head = new_node
+        else:
+            curr = self._head
+            while curr.next:
+                curr = curr.next
+                # Setting the last node
+            curr.next = new_node
 
     def search(self, val: Any) -> Node | None:
-        curr: Node | None = self.head
+        curr: Node | None = self._head
         while curr:
             if curr.data == val:
                 return curr
@@ -101,10 +113,10 @@ class LinkedList:
     def __repr__(self):
         # String representation of the linked list
         nodes = []
-        curr: Node | None = self.head
+        curr: Node | None = self._head
 
         while curr:
-            if curr is self.head:
+            if curr is self._head:
                 nodes.append("[Head: %s]" % curr.data)
             elif curr.next is None:
                 nodes.append("[Tail: %s]" % curr.data)
@@ -116,18 +128,18 @@ class LinkedList:
         return '-> '.join(nodes)
 
 
-class LinkedListStack:
+class LinkedListQueue:
     def __init__(self):
-        self._list = LinkedList() # Private variable
+        self._list: LinkedList = LinkedList()
 
-    def push(self, val: Any) -> None:
-        self._list.prepend(val) # add
+    def enqueue(self, val: Any) -> None:
+        self._list.append(val)
 
-    def pop(self) -> Node | None:
+    def dequeue(self) -> Node | None:
         return self._list.remove_from_front()
 
-    def peek(self) -> Any:
-        return self._list.head
+    def peek(self) -> Node | None:
+        return self._list._head
 
     def is_empty(self) -> bool:
         return self._list.is_empty()
@@ -139,14 +151,12 @@ class LinkedListStack:
         return self._list
 
 
-stack = LinkedListStack()
-print("Empty? ", stack.is_empty())
-stack.push(12)
-stack.push(32)
-stack.push(52)
-stack.push(72)
-print(stack.print())
-stack.pop()
-print(stack.print())
-print("Peek ",stack.peek())
-print("Size ",stack.get_size())
+queue = LinkedListQueue()
+queue.enqueue(30)
+queue.enqueue(40)
+queue.enqueue(70)
+queue.enqueue(10)
+print(queue.print())
+queue.dequeue()
+print(queue.print())
+print(queue.peek())
